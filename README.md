@@ -6,7 +6,7 @@
 
 > **Learn Reinforcement Learning from a random baseline to agentic RL** — hands-on, runnable Python examples, organized as **two independent tracks**. They share vocabulary and almost nothing else: different reward sources, runtimes, costs, and audiences.
 >
-> 🚧 **Status:** 11 of 13 guides are live and self-contained (NumPy only). Pending: **A6, B6**. The interactive web app in `PLAN.md` is a proposal, not built.
+> 🚧 **Status:** 12 of 13 guides are live. Pending: **A6, B6**. All guides are self-contained and NumPy-only **except [A0](docs/tracks/a-llm-post-training/a0-hands-on-post-training.md)**, the hands-on post-training guide, which needs a GPU (free Colab is enough). The interactive web app in `PLAN.md` is a proposal, not built.
 >
 > 🗓 **Last updated:** 2026-09-17
 
@@ -66,7 +66,7 @@ Most RL tutorials use toy games (CartPole, MountainCar). This guide teaches RL t
 
 ## What This Repo Is (and Isn't)
 
-**What it is:** A documentation-first curriculum organized as two tracks. Each guide is self-contained, runs on CPU, and needs only NumPy — no GPU, no framework, no API key.
+**What it is:** A documentation-first curriculum organized as two tracks. Each guide is self-contained and NumPy-only — **except [A0](docs/tracks/a-llm-post-training/a0-hands-on-post-training.md)**, the hands-on post-training guide, which needs a GPU (free Colab is enough). No framework, no API key.
 
 **What it isn't:** An application or a library. There is nothing to install and no server to run. The interactive web app in `PLAN.md` is a **proposal** — no `backend/`, `frontend/`, or `start-app.sh` exists yet.
 
@@ -95,6 +95,7 @@ You don't reinvent RLHF. You **use** its output (GPT-4, Claude via API) and laye
 
 | # | Guide | What It Covers | Reward Source | Compute |
 |:-:|-------|----------------|---------------|:-------:|
+| **A0** | [Hands-On Post-Training](docs/tracks/a-llm-post-training/a0-hands-on-post-training.md) | **Runnable** SFT → DPO → GRPO on your own hardware (M4 + Colab) | Cross-entropy / preferences / verifier | GPU |
 | **A1** | [Policy Gradient / PPO](docs/tracks/a-llm-post-training/a1-policy-gradient-ppo.md) | Optimizing the policy directly; the clipped objective | Environment / reward model | High |
 | **A2** | [RLHF](docs/tracks/a-llm-post-training/a2-rlhf.md) | Preference data → reward model → PPO | Human preferences | Extreme |
 | **A3** | [DPO & RFT](docs/tracks/a-llm-post-training/a3-dpo-and-rft.md) | Alignment without a reward model or RL loop | Preference pairs / filtered samples | Medium |
@@ -144,6 +145,7 @@ TRUSTWORTHY / EXPENSIVE  ──────────────────�
 ### Track A: Recommended Paths
 
 ```
+Want to actually RUN the pipeline?     A0             (hands-on: SFT → DPO → GRPO)
 Curious how ChatGPT was made?          A2 → A4 → A5   (read for understanding)
 Align your own small model?            A3 → A4        (build)
 Reasoning or coding assistant?         A4 → A6        (build)
@@ -286,6 +288,7 @@ rl-learning-lab/
     └── tracks/
         ├── a-llm-post-training/       ← Track A (model training)
         │   ├── index.md
+        │   ├── a0-hands-on-post-training.md
         │   ├── a1-policy-gradient-ppo.md
         │   ├── a2-rlhf.md
         │   ├── a3-dpo-and-rft.md
