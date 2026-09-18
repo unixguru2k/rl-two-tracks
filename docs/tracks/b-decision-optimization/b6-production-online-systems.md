@@ -39,7 +39,7 @@ Compare this to [Track A's loop](../a-llm-post-training/index.md#the-core-loop).
 ONE REQUEST = a fixed budget (say 200 ms end-to-end)
 
   build context        ~5 ms    (user profile, recent events — already in hand)
-  load policy state    ~10 ms   (ONE O(1) read: /app-data/{key})
+  load policy state    ~10 ms   (ONE O(1) key-value read)
   score actions        ~1 ms    (a few dot products)
   guardrail check      ~1 ms
   serve + log          ~3 ms
@@ -167,7 +167,7 @@ class ProductionBandit:
         self.pb = {a: np.zeros(n_features) for a in self.actions}
         self.pn = {a: 0 for a in self.actions}
 
-        # In production this is written ASYNC to /content, never in the hot path
+        # In production this is written ASYNC to an event log, never in the hot path
         self.decisions = []
 
     def _weights(self, action):
@@ -333,7 +333,7 @@ Never move a new policy from "written" straight to "100% of traffic."
   MUTABLE LEARNING STATE          APPEND-ONLY EVENT LOG
   (read every request)            (written async, read offline)
   ┌──────────────────────┐        ┌──────────────────────┐
-  │ /app-data/{key}      │        │ /content             │
+  │ key-value store      │        │ event log            │
   │ Q-table, weights     │        │ reward events,       │
   │ O(1) GET / PUT       │        │ interactions,        │
   │                      │        │ decisions + propensity│
@@ -381,14 +381,14 @@ From the [RL Methods Guide](../../RL_METHODS_GUIDE.md):
 > **Progression Path**
 > MONTH 1: Classic MAB → MONTH 2: LinUCB → MONTH 4: Q-Learning + LinUCB → ...
 
-B6 is the layer that makes that progression survivable in production. The algorithms live in B0–B5; the constraints live here. The master guide's storage appendix maps directly onto the serving loop:
+B6 is the layer that makes that progression survivable in production. The algorithms live in B0–B5; the constraints live here. The master guide's storage notes map directly onto the serving loop:
 
-| Data | Endpoint | In the request path? |
-|------|----------|----------------------|
-| Policy state (Q-table, weights) | `/app-data/{key}` | ✅ one O(1) read |
-| Reward events, interaction history | `/content` | ❌ written async, read offline |
+| Data | Store | In the request path? |
+|------|-------|----------------------|
+| Policy state (Q-table, weights) | key-value store | ✅ one O(1) read |
+| Reward events, interaction history | append-only log | ❌ written async, read offline |
 
-That split — **mutable state in app-data, append-only events in content** — is the single most important layout decision for an online learner.
+That split — **mutable state in the key-value store, append-only events in the log** — is the single most important layout decision for an online learner.
 
 ---
 

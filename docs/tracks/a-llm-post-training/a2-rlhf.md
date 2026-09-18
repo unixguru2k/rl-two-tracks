@@ -564,7 +564,7 @@ RLHF uses Task 2 → achieves results of Task 1 at scale!
 YOUR ROLE AS AN APP DEVELOPER:
   ❌ Don't train your own LLM from scratch
   ❌ Don't run RLHF yourself
-  ✅ USE pre-trained, RLHF'd models via OpenRouter
+  ✅ USE pre-trained, RLHF'd models via your LLM API
   ✅ ADD personalization on top using Levels 0-4
 
 YOUR STACK:
@@ -615,7 +615,7 @@ Level 7: DPO            → Direct preference optimization (no reward model)
 Level 8: GRPO + RLVR    → Group-relative, verifiable rewards (reasoning)
 
 For most chatbot applications: Levels 1b-3 are the sweet spot.
-Use Level 6's output (ChatGPT, Claude) as your LLM via OpenRouter.
+Use Level 6's output (ChatGPT, Claude) as your LLM.
 Add personalization with Levels 0-4 in your backend.
 ```
 

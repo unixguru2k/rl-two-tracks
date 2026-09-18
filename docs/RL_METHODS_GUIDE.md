@@ -19,7 +19,7 @@
 - [When NOT To Use Each Method](#when-not-to-use-each-method)
 - [Q-Tables Explained](#q-tables-explained)
 - [LinUCB Explained](#linucb-explained)
-- [RL Integration With OpenRouter](#rl-integration-with-openrouter)
+- [RL Integration With Your LLM API](#rl-integration-with-your-llm-api)
 - [Progression Path](#progression-path)
 
 ---
@@ -308,7 +308,7 @@ On each new message:
 
 "Fine-tune response generation at the token level"
 - Only needed if you're training your OWN language model
-- For strategy selection via OpenRouter, this is overkill
+- For strategy selection via your LLM API, this is overkill
 
 ---
 
@@ -356,7 +356,7 @@ The MODEL TRAINING is offline.
 
 ### App Use Case
 
-You DON'T do RLHF yourself. You USE models that already went through RLHF (Claude, GPT-4 via OpenRouter). You ADD personalization on top via the lower-level methods.
+You DON'T do RLHF yourself. You USE models that already went through RLHF (Claude, GPT-4). You ADD personalization on top via the lower-level methods.
 
 ---
 
@@ -705,7 +705,7 @@ LinUCB:    "I haven't seen this exact state, but the
 | **Storage** | O(states × actions) | O(features² × actions) |
 | **Works well when** | Few, discrete states | Many states, shared structure |
 
-### LinUCB With OpenRouter
+### LinUCB With Your LLM API
 
 ```
 EVERY MESSAGE:
@@ -719,7 +719,7 @@ Step 2: For each action, compute score
 
 Step 3: Pick action with highest score
 
-Step 4: Build dynamic prompt, call OpenRouter, send response
+Step 4: Build dynamic prompt, call your LLM API, send response
 
 Step 5: On user reaction, calculate reward
 
@@ -750,11 +750,11 @@ Hybrid approach:
 
 ---
 
-## RL Integration With OpenRouter
+## RL Integration With Your LLM API
 
 ### Where RL Fits In
 
-RL doesn't sit inside the OpenRouter call. It sits **before** it, deciding **how to instruct the LLM**.
+RL doesn't sit inside the LLM call. It sits **before** it, deciding **how to instruct the LLM**.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -763,7 +763,7 @@ RL doesn't sit inside the OpenRouter call. It sits **before** it, deciding **how
 │  1. CONTEXT EXTRACTOR → state vector                        │
 │  2. RL POLICY → "best strategy is: playful + short"         │
 │  3. PROMPT BUILDER → dynamic system prompt                  │
-│  4. OPENROUTER CALL → same as today, different prompt       │
+│  4. LLM API CALL → same as today, different prompt          │
 │  5. REWARD CALCULATOR → score user reaction                 │
 │  6. Q-TABLE/LinUCB UPDATE → store learning                 │
 │                                                             │
@@ -773,7 +773,7 @@ RL doesn't sit inside the OpenRouter call. It sits **before** it, deciding **how
 ### What Changes vs What Stays the Same
 
 ```
-STAYS THE SAME (OpenRouter/LLM does this):
+STAYS THE SAME (the LLM does this):
   ✓ Understanding user's message
   ✓ Generating human-like text
   ✓ Maintaining conversation context
@@ -852,7 +852,7 @@ FINE-TUNE: DPO (Level 7)
 NEVER:    RLHF / GRPO + RLVR
           You use pre-trained models. Don't reinvent this.
           For reasoning, USE DeepSeek-R1 / o-series via API.
-          OpenRouter gives you access to RLHF'd AND reasoning models.
+          Your LLM API gives you access to RLHF'd AND reasoning models.
 ```
 
 ### Recommended Stack for AI Girlfriend App
@@ -861,18 +861,7 @@ NEVER:    RLHF / GRPO + RLVR
 |-----------|--------|-----|
 | **Strategy selection** | LinUCB | Context-dependent, few actions, online |
 | **Dialog flow** | Q-Learning | Sequential decisions matter |
-| **Response generation** | LLM via OpenRouter | Pre-trained, already RLHF'd |
+| **Response generation** | LLM API | Pre-trained, already RLHF'd |
 | **Reward calculation** | Heuristic | Computed from user reactions |
 
----
 
-## Appendix: MACHAAO API Storage Strategy
-
-| Data | Endpoint | Key Pattern | Why |
-|------|----------|-------------|-----|
-| Q-table per user | `/app-data/{key}` | `rl-qtable-{user_id}` | O(1) lookup per message |
-| LinUCB weights | `/app-data/{key}` | `linucb-user-{user_id}` | O(1) lookup per message |
-| Global weights | `/app-data/{key}` | `linucb-global` | Shared baseline |
-| Reward events | `/content` (type: reward-event) | Tags: `[user_id, "reward"]` | Searchable analytics |
-| Interaction history | `/content` (type: interaction) | Tags: `[user_id, "interaction"]` | Searchable for analysis |
-| User preferences | `/app-data/{key}` | `rl-prefs-{user_id}` | Fast profile lookup |

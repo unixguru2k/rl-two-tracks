@@ -115,22 +115,22 @@ Most expensive / hardest to debug
 
 ---
 
-## Storage: The MACHAAO Story
+## Storage: Where the State Lives
 
 This is the part of the repo that is specific to Track B, because only Track B needs per-request O(1) state.
 
 Track A's storage is a GPU filesystem and an object store. Track B's storage is a key-value read that must complete inside a request's latency budget.
 
-| Data | MACHAAO Endpoint | Key Pattern | Why |
-|------|------------------|-------------|-----|
-| Q-table per user | `/app-data/{key}` | `rl-qtable-{user_id}` | O(1) lookup per decision |
-| LinUCB weights per user | `/app-data/{key}` | `linucb-user-{user_id}` | O(1) lookup per decision |
-| Global weights (shared) | `/app-data/{key}` | `linucb-global` | Cold-start baseline for new users |
-| Reward events | `/content` (type: `reward-event`) | Tags: `[user_id, "reward"]` | Searchable analytics and offline eval |
-| Interaction history | `/content` (type: `interaction`) | Tags: `[user_id, "interaction"]` | Debugging and replay |
-| User preferences / profile | `/app-data/{key}` | `rl-prefs-{user_id}` | Fast profile lookup |
+| Data | Store | Key Pattern | Why |
+|------|-------|-------------|-----|
+| Q-table per user | key-value store | `rl-qtable-{user_id}` | O(1) lookup per decision |
+| LinUCB weights per user | key-value store | `linucb-user-{user_id}` | O(1) lookup per decision |
+| Global weights (shared) | key-value store | `linucb-global` | Cold-start baseline for new users |
+| Reward events | append-only log | tags: `[user_id, "reward"]` | Searchable analytics and offline eval |
+| Interaction history | append-only log | tags: `[user_id, "interaction"]` | Debugging and replay |
+| User preferences / profile | key-value store | `rl-prefs-{user_id}` | Fast profile lookup |
 
-The layout rule that makes this work: **`/app-data/{key}` holds the mutable learning state the policy reads on every request; `/content` holds the immutable append-only event log you analyze later.** Keep them separate. Mixing them means either slow reads or no history.
+The layout rule that makes this work: **the key-value store holds the mutable learning state the policy reads on every request; the append-only log holds the immutable events you analyze later.** Keep them separate. Mixing them means either slow reads or no history.
 
 See [B6 — Production Online Systems](b6-production-online-systems.md) for the full serving architecture, drift handling, and safety rails.
 
