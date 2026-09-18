@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- add navigation breadcrumbs and update status in documentation (README.md, docs/tracks/a-llm-post-training/a0-hands-on-post-training.md, docs/tracks/a-llm-post-training/a1-policy-gradient-ppo.md, +10 more) [via commit]
+- add A0 hands-on post-training guide (CHANGELOG.md, README.md, docs/tracks/a-llm-post-training/a0-hands-on-post-training.md, +1 more) [via commit]
 - add A0 guide: Hands-On Post-Training (docs/tracks/a-llm-post-training/a0-hands-on-post-training.md) — runnable SFT → DPO → GRPO pipeline (M4 + Colab); the only guide requiring a GPU
 - add A5 guide: Agentic RL & Environments (docs/tracks/a-llm-post-training/a5-agentic-rl-environments.md) — conceptual only, no code
 - add RL chatbot learning lab project plan (PLAN.md) [via commit]
