@@ -638,4 +638,4 @@ If you fine-tune your **own** model from preference pairs, go to **Level 7: DPO*
 
 **Previous:** [A1 — Policy Gradient / PPO](a1-policy-gradient-ppo.md) · **Next:** [A3 — DPO & RFT](a3-dpo-and-rft.md)
 
-**Up:** [Track A Index](index.md) · **See Also:** [A4: GRPO & RLVR](a4-grpo-and-rlvr.md) · **Reference:** [RL Methods Guide — Level 6](../../RL_METHODS_GUIDE.md#level-6-rlhf-reinforcement-learning-from-human-feedback)
+**Up:** [Track A Index](index.md) · **Reference:** [RL Methods Guide — Level 6](../../RL_METHODS_GUIDE.md#level-6-rlhf-reinforcement-learning-from-human-feedback)

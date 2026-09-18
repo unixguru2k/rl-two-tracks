@@ -459,6 +459,6 @@ For reasoning with verifiers: GRPO + RLVR.
 
 ---
 
-**Next:** [A1 — Policy Gradient / PPO](a1-policy-gradient-ppo.md) →
+**Next:** [A1 — Policy Gradient / PPO](a1-policy-gradient-ppo.md)
 
-**Up:** [Track A Index](index.md) · **See Also:** [A3: DPO & RFT](a3-dpo-and-rft.md) · [A4: GRPO & RLVR](a4-grpo-and-rlvr.md)
+**Up:** [Track A Index](index.md) · **Reference:** [RL Methods Guide](../../RL_METHODS_GUIDE.md)

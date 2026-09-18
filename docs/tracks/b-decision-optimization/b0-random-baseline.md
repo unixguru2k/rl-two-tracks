@@ -128,6 +128,6 @@ Once you have a baseline, move to **Level 1a: Classic Multi-Armed Bandit** to st
 
 ---
 
-**Next:** [B1 — Epsilon-Greedy Bandit](b1-epsilon-greedy-bandit.md) →
+**Next:** [B1 — Epsilon-Greedy Bandit](b1-epsilon-greedy-bandit.md)
 
 **Up:** [Track B Index](index.md) · **Reference:** [RL Methods Guide — Level 0](../../RL_METHODS_GUIDE.md#level-0-random-selection)

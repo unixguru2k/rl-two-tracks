@@ -1,6 +1,6 @@
 # A5 — Agentic RL & Environments
 
-> **Track A · Guide 6 of 6** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+> **Track A · Guide 6 of 7** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
 
 ## What You'll Learn
 
@@ -366,4 +366,6 @@ For agents that act: A5 — and the environment, not the model, is the work.
 
 ---
 
-**See Also**: [A4: GRPO & RLVR](a4-grpo-and-rlvr.md) · [A6: Rewards & Test-Time Compute](a6-rewards-and-test-time-compute.md) · [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+**Previous:** [A4 — GRPO & RLVR](a4-grpo-and-rlvr.md) · **Next:** *A6 — Rewards & Test-Time Compute* (planned)
+
+**Up:** [Track A Index](index.md) · **Reference:** [RL Methods Guide](../../RL_METHODS_GUIDE.md)
