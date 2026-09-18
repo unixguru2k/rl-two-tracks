@@ -1,6 +1,6 @@
 # A2 — RLHF (Reinforcement Learning from Human Feedback)
 
-> **Track A · Guide 3 of 6** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+> **Track A · Guide 3 of 7** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
 
 ## What You'll Learn
 
@@ -636,4 +636,6 @@ If you fine-tune your **own** model from preference pairs, go to **Level 7: DPO*
 
 ---
 
-**See Also**: [Track A Index](index.md) · [RL Methods Guide - Level 6](../../RL_METHODS_GUIDE.md#level-6-rlhf-reinforcement-learning-from-human-feedback) · [A3: DPO & RFT](a3-dpo-and-rft.md) · [A4: GRPO & RLVR](a4-grpo-and-rlvr.md)
+**Previous:** [A1 — Policy Gradient / PPO](a1-policy-gradient-ppo.md) · **Next:** [A3 — DPO & RFT](a3-dpo-and-rft.md)
+
+**Up:** [Track A Index](index.md) · **See Also:** [A4: GRPO & RLVR](a4-grpo-and-rlvr.md) · **Reference:** [RL Methods Guide — Level 6](../../RL_METHODS_GUIDE.md#level-6-rlhf-reinforcement-learning-from-human-feedback)

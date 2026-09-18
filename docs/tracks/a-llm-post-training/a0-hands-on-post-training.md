@@ -1,6 +1,6 @@
 # A0 — Hands-On Post-Training (SFT → DPO → GRPO)
 
-> **Track A · Guide 1 of 6** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+> **Track A · Guide 1 of 7** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
 
 ## What You'll Learn
 
@@ -459,4 +459,6 @@ For reasoning with verifiers: GRPO + RLVR.
 
 ---
 
-**See Also**: [Track A Index](index.md) · [A3: DPO & RFT](a3-dpo-and-rft.md) · [A4: GRPO & RLVR](a4-grpo-and-rlvr.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+**Next:** [A1 — Policy Gradient / PPO](a1-policy-gradient-ppo.md) →
+
+**Up:** [Track A Index](index.md) · **See Also:** [A3: DPO & RFT](a3-dpo-and-rft.md) · [A4: GRPO & RLVR](a4-grpo-and-rlvr.md)

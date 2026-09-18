@@ -1,6 +1,6 @@
 # B4 — Feature-Based Q-Learning
 
-> **Track B · Guide 5 of 6** — [Track B Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+> **Track B · Guide 5 of 7** — [Track B Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
 
 ## What You'll Learn
 
@@ -417,4 +417,6 @@ When your features have complex non-linear relationships, move to **Level 4: Dee
 
 ---
 
-**See Also**: [RL Methods Guide - Level 3](../../RL_METHODS_GUIDE.md#level-3-feature-based-q-learning-linear-approximation)
+**Previous:** [B3 — Q-Learning (Tabular)](b3-q-learning-tabular.md) · **Next:** [B5 — DQN](b5-dqn.md)
+
+**Up:** [Track B Index](index.md) · **Reference:** [RL Methods Guide — Level 3](../../RL_METHODS_GUIDE.md#level-3-feature-based-q-learning-linear-approximation)

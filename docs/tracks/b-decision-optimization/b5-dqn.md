@@ -1,6 +1,6 @@
 # B5 — DQN (Deep Q-Network)
 
-> **Track B · Guide 6 of 6** — [Track B Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+> **Track B · Guide 6 of 7** — [Track B Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
 
 ## What You'll Learn
 
@@ -563,4 +563,6 @@ When you need continuous actions (not just discrete choices) or want to train LL
 
 ---
 
-**See Also**: [RL Methods Guide - Level 4](../../RL_METHODS_GUIDE.md#level-4-deep-q-network-dqn)
+**Previous:** [B4 — Feature-Based Q-Learning](b4-feature-based-q-learning.md) · **Next:** *B6 — Production Online Systems* (planned)
+
+**Up:** [Track B Index](index.md) · **Reference:** [RL Methods Guide — Level 4](../../RL_METHODS_GUIDE.md#level-4-deep-q-network-dqn)

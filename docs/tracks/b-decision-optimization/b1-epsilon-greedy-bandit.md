@@ -1,6 +1,6 @@
 # B1 — Epsilon-Greedy Bandit
 
-> **Track B · Guide 2 of 6** — [Track B Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+> **Track B · Guide 2 of 7** — [Track B Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
 
 ## What You'll Learn
 
@@ -257,4 +257,6 @@ Once you find the best GLOBAL default, move to **Level 1b: Contextual Bandit (Li
 
 ---
 
-**See Also**: [RL Methods Guide - Level 1a](../../RL_METHODS_GUIDE.md#level-1a-classic-multi-armed-bandit-epsilon-greedy)
+**Previous:** [B0 — Random Baseline](b0-random-baseline.md) · **Next:** [B2 — Contextual Bandit (LinUCB)](b2-contextual-bandit-linucb.md)
+
+**Up:** [Track B Index](index.md) · **Reference:** [RL Methods Guide — Level 1a](../../RL_METHODS_GUIDE.md#level-1a-classic-multi-armed-bandit-epsilon-greedy)

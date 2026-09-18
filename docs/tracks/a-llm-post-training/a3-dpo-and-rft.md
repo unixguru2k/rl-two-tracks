@@ -1,6 +1,6 @@
 # A3 — DPO & RFT (Direct Preference Optimization & Rejection Fine-Tuning)
 
-> **Track A · Guide 4 of 6** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+> **Track A · Guide 4 of 7** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
 
 ## What You'll Learn
 
@@ -410,4 +410,6 @@ DPO is strong for whole-response preferences but gives **no credit for intermedi
 
 ---
 
-**See Also**: [RL Methods Guide - Level 7](../../RL_METHODS_GUIDE.md#level-7-dpo-direct-preference-optimization)
+**Previous:** [A2 — RLHF](a2-rlhf.md) · **Next:** [A4 — GRPO & RLVR](a4-grpo-and-rlvr.md)
+
+**Up:** [Track A Index](index.md) · **Reference:** [RL Methods Guide — Level 7](../../RL_METHODS_GUIDE.md#level-7-dpo-direct-preference-optimization)

@@ -1,6 +1,6 @@
 # B3 — Q-Learning (Tabular)
 
-> **Track B · Guide 4 of 6** — [Track B Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+> **Track B · Guide 4 of 7** — [Track B Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
 
 ## What You'll Learn
 
@@ -461,4 +461,6 @@ When your state space grows too large for a table, move to **Level 3: Feature-Ba
 
 ---
 
-**See Also**: [RL Methods Guide - Level 2](../../RL_METHODS_GUIDE.md#level-2-q-learning-tabular)
+**Previous:** [B2 — Contextual Bandit (LinUCB)](b2-contextual-bandit-linucb.md) · **Next:** [B4 — Feature-Based Q-Learning](b4-feature-based-q-learning.md)
+
+**Up:** [Track B Index](index.md) · **Reference:** [RL Methods Guide — Level 2](../../RL_METHODS_GUIDE.md#level-2-q-learning-tabular)

@@ -1,6 +1,6 @@
 # B0 — Random Baseline
 
-> **Track B · Guide 1 of 6** — [Track B Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+> **Track B · Guide 1 of 7** — [Track B Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
 
 ## What You'll Learn
 
@@ -128,4 +128,6 @@ Once you have a baseline, move to **Level 1a: Classic Multi-Armed Bandit** to st
 
 ---
 
-**See Also**: [RL Methods Guide - Level 0](../../RL_METHODS_GUIDE.md#level-0-random-selection)
+**Next:** [B1 — Epsilon-Greedy Bandit](b1-epsilon-greedy-bandit.md) →
+
+**Up:** [Track B Index](index.md) · **Reference:** [RL Methods Guide — Level 0](../../RL_METHODS_GUIDE.md#level-0-random-selection)

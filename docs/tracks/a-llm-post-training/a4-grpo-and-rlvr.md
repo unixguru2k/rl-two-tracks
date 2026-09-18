@@ -1,6 +1,6 @@
 # A4 — GRPO & RLVR (Reasoning Models)
 
-> **Track A · Guide 5 of 6** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+> **Track A · Guide 5 of 7** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
 
 ## What You'll Learn
 
@@ -466,4 +466,6 @@ For reasoning tasks with verifiers: GRPO + RLVR (Level 8).
 
 ---
 
-**See Also**: [RL Methods Guide - Level 8](../../RL_METHODS_GUIDE.md#level-8-grpo--rlvr-reasoning-models)
+**Previous:** [A3 — DPO & RFT](a3-dpo-and-rft.md) · **Next:** [A5 — Agentic RL & Environments](a5-agentic-rl-environments.md)
+
+**Up:** [Track A Index](index.md) · **Reference:** [RL Methods Guide — Level 8](../../RL_METHODS_GUIDE.md#level-8-grpo--rlvr-reasoning-models)

@@ -1,6 +1,6 @@
 # B2 — Contextual Bandit (LinUCB)
 
-> **Track B · Guide 3 of 6** — [Track B Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+> **Track B · Guide 3 of 7** — [Track B Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
 
 ## What You'll Learn
 
@@ -302,4 +302,6 @@ Once you master single-step decisions with context, move to **Level 2: Q-Learnin
 
 ---
 
-**See Also**: [RL Methods Guide - Level 1b](../../RL_METHODS_GUIDE.md#level-1b-contextual-bandit-linucb)
+**Previous:** [B1 — Epsilon-Greedy Bandit](b1-epsilon-greedy-bandit.md) · **Next:** [B3 — Q-Learning (Tabular)](b3-q-learning-tabular.md)
+
+**Up:** [Track B Index](index.md) · **Reference:** [RL Methods Guide — Level 1b](../../RL_METHODS_GUIDE.md#level-1b-contextual-bandit-linucb)

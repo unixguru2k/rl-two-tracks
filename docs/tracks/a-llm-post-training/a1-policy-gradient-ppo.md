@@ -1,6 +1,6 @@
 # A1 — Policy Gradient / PPO
 
-> **Track A · Guide 2 of 6** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+> **Track A · Guide 2 of 7** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
 
 ## What You'll Learn
 
@@ -618,4 +618,6 @@ PPO is the engine behind **Level 6: RLHF**. If you want to understand how ChatGP
 
 ---
 
-**See Also**: [RL Methods Guide - Level 5](../../RL_METHODS_GUIDE.md#level-5-policy-gradient--ppo)
+**Previous:** [A0 — Hands-On Post-Training](a0-hands-on-post-training.md) · **Next:** [A2 — RLHF](a2-rlhf.md)
+
+**Up:** [Track A Index](index.md) · **Reference:** [RL Methods Guide — Level 5](../../RL_METHODS_GUIDE.md#level-5-policy-gradient--ppo)
