@@ -40,8 +40,10 @@ If you are building a product and wondering how RL applies to *your* code, this 
 | **B2** | [Contextual Bandit (LinUCB)](b2-contextual-bandit-linucb.md) | Pick best option **given context** | ⭐⭐ | ✅ |
 | **B3** | [Q-Learning (Tabular)](b3-q-learning-tabular.md) | **Sequence** of decisions, small state space | ⭐⭐ | ✅ |
 | **B4** | [Feature-Based Q-Learning](b4-feature-based-q-learning.md) | Sequence, large/continuous state space | ⭐⭐⭐ | ✅ |
-| **B5** | [DQN](b5-dqn.md) | Sequence, raw high-dimensional state (text/images) | ⭐⭐⭐⭐ | ⚠️ |
-| **B6** | [Production Online Systems](b6-production-online-systems.md) | Shipping any of the above to real users | ⭐⭐⭐ | ✅ |
+| **B5** | [DQN](b5-dqn.md) | Sequence, raw high-dimensional state (text/images) | ⭐⭐⭐⭐ | ⚠ |
+| **B6** | *Production Online Systems* | Shipping any of the above to real users | ⭐⭐⭐ | ✅ |
+
+*B6 is planned — not yet written.*
 
 ---
 
@@ -132,7 +134,7 @@ Track A's storage is a GPU filesystem and an object store. Track B's storage is 
 
 The layout rule that makes this work: **`/app-data/{key}` holds the mutable learning state the policy reads on every request; `/content` holds the immutable append-only event log you analyze later.** Keep them separate. Mixing them means either slow reads or no history.
 
-See [B6](b6-production-online-systems.md) for the full serving architecture, drift handling, and safety rails.
+See *B6 — Production Online Systems* (planned) for the full serving architecture, drift handling, and safety rails.
 
 ---
 
