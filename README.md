@@ -281,6 +281,8 @@ rl-two-tracks/
 ├── README.md                          ← you are here
 ├── PLAN.md                            ← proposal for the interactive web app (not built)
 ├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── LICENSE
 └── docs/
     ├── RL_METHODS_GUIDE.md            ← master reference: all 9 levels
     └── tracks/
