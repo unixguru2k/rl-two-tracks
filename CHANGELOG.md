@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- add .gitignore to project structure tree in README (README.md) [via commit]
 - add B6 guide and complete Track B (CHANGELOG.md, CONTRIBUTING.md, README.md, +3 more) [via commit]
 - add B6 guide: Production Online Systems (docs/tracks/b-decision-optimization/b6-production-online-systems.md) — cold start, non-stationarity, latency budget, safety rails, and off-policy evaluation; completes Track B (7 of 7)
 - resolve broken links and add missing project files (CONTRIBUTING.md, LICENSE, docs/tracks/a-llm-post-training/a5-agentic-rl-environments.md, +2 more) [via commit]
@@ -24,6 +25,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - standardize navigation footers and fix guide numbering (docs/tracks/a-llm-post-training/a0-hands-on-post-training.md, docs/tracks/a-llm-post-training/a2-rlhf.md, docs/tracks/a-llm-post-training/a5-agentic-rl-environments.md, +1 more) [via commit]
 ### Changed
 
+- update project structure tree in README (README.md) [via commit]
+- clarify A0 GPU requirement in README tech stack (README.md) [via commit]
+- update last updated date in README (README.md) [via commit]
 - ignore CHANGELOG.md in .gitignore (.gitignore) [via commit]
 - rename project to RL Two Tracks (CHANGELOG.md, CONTRIBUTING.md, LICENSE, +2 more) [via commit]
 - rename project from "RL Learning Lab" to "RL Two Tracks" (README.md, CONTRIBUTING.md, PLAN.md, LICENSE) — repo name now names the repo's core differentiator (the two-track A/B split)
@@ -33,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- remove MACHAAO and vendor-specific API references from PLAN.md (CHANGELOG.md, PLAN.md) [via commit]
 - remove MACHAAO and vendor-specific API references from guides (docs/RL_METHODS_GUIDE.md, docs/tracks/a-llm-post-training/a2-rlhf.md, docs/tracks/b-decision-optimization/b6-production-online-systems.md, +1 more) [via commit]
 - remove remaining MACHAAO and vendor-specific API references from PLAN.md — retargeted storage to a generic key-value store + append-only log (`MACHAAO` → `Data Store`, `/app-data/{key}` → `key-value store`, `/content` → `append-only log`, `machaao_store.py` → `local_store.py`, `STORE_BACKEND=machaao` → `local`, and dropped the `MACHAAO_*` env vars)
 - README.md: duplicate A/B guide tables and repeated Track A "post-training stack" block that interleaved the two tracks
