@@ -1,4 +1,4 @@
-# RL Learning Lab for Chatbot Development
+# RL Two Tracks for Chatbot Development
 
 ## Project Overview
 
@@ -22,7 +22,7 @@ An interactive web application for learning and experimenting with Reinforcement
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                        RL Learning Lab                              │
+│                        RL Two Tracks                                │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
 │  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐          │

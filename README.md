@@ -1,4 +1,4 @@
-# RL Learning Lab — Reinforcement Learning for Agents, LLMs & Systems
+# RL Two Tracks — Reinforcement Learning for Agents, LLMs & Systems
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -250,8 +250,8 @@ There is nothing to install. Every guide is copy-paste runnable.
 
 ```bash
 # 1. Clone
-git clone https://github.com/your-org/rl-learning-lab.git
-cd rl-learning-lab
+git clone https://github.com/your-org/rl-two-tracks.git
+cd rl-two-tracks
 
 # 2. Install the single dependency used by all examples
 pip install numpy
@@ -279,7 +279,7 @@ pip install numpy
 ## Project Structure
 
 ```
-rl-learning-lab/
+rl-two-tracks/
 ├── README.md                          ← you are here
 ├── PLAN.md                            ← proposal for the interactive web app (not built)
 ├── CHANGELOG.md

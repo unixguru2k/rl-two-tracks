@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve the RL Learning Lab. This repo is **documentation-first**: every guide is self-contained and copy-paste runnable, and there is nothing to install.
+Thanks for helping improve RL Two Tracks. This repo is **documentation-first**: every guide is self-contained and copy-paste runnable, and there is nothing to install.
 
 ## Good First Contributions
 
