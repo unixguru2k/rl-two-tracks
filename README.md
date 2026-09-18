@@ -174,7 +174,7 @@ Product with personalization?          Go to Track B  (and come back only for th
 | **B0** | [Random Baseline](docs/tracks/b-decision-optimization/b0-random-baseline.md) | Establish the floor (this is a **control**, not a warm-up) | ⭐ | N/A |
 | **B1** | [Epsilon-Greedy Bandit](docs/tracks/b-decision-optimization/b1-epsilon-greedy-bandit.md) | Pick best option; **no context** | ⭐ | ✅ |
 | **B2** | [Contextual Bandit (LinUCB)](docs/tracks/b-decision-optimization/b2-contextual-bandit-linucb.md) | Pick best option **given context** | ⭐⭐ | ✅ |
-| **B3** | [Q-Learning (Tabular)](docs/tracks/b-decision-optimization/b3-q-learning-tabular.md) | **Sequence** of decisions, small state space | ⭐ | ✅ |
+| **B3** | [Q-Learning (Tabular)](docs/tracks/b-decision-optimization/b3-q-learning-tabular.md) | **Sequence** of decisions, small state space | ⭐⭐ | ✅ |
 | **B4** | [Feature-Based Q-Learning](docs/tracks/b-decision-optimization/b4-feature-based-q-learning.md) | Sequence, large/continuous state space | ⭐⭐⭐ | ✅ |
 | **B5** | [DQN](docs/tracks/b-decision-optimization/b5-dqn.md) | Sequence, raw high-dimensional state (text/images) | ⭐⭐⭐⭐ | ⚠ |
 | **B6** | [Production Online Systems](docs/tracks/b-decision-optimization/b6-production-online-systems.md) | Shipping any of the above to real users | ⭐⭐⭐ | ✅ |
@@ -268,7 +268,7 @@ pip install numpy
 | Layer | Choice | Why |
 |-------|--------|-----|
 | Examples | **Python 3.9+** | Readable, universally available |
-| Numerics | **NumPy** (only dependency) | Every example runs on CPU with one install |
+| Numerics | **NumPy** (only dependency) | Every guide runs on CPU with one install — **except A0**, which needs a GPU |
 | Docs | **Markdown** | Renders on GitHub and in any editor |
 | Diagrams | ASCII | No image assets, no renderer, grep-able |
 
