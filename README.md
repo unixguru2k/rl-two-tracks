@@ -6,7 +6,7 @@
 
 > **Learn Reinforcement Learning from a random baseline to agentic RL** — hands-on, runnable Python examples, organized as **two independent tracks**. They share vocabulary and almost nothing else: different reward sources, runtimes, costs, and audiences.
 >
-> 🚧 **Status:** 12 of 14 guides are live. Pending: **A6, B6**. All guides are self-contained and NumPy-only **except [A0](docs/tracks/a-llm-post-training/a0-hands-on-post-training.md)**, the hands-on post-training guide, which needs a GPU (free Colab is enough). The interactive web app in `PLAN.md` is a proposal, not built.
+> 🚧 **Status:** 13 of 14 guides are live. Pending: **A6**. All guides are self-contained and NumPy-only **except [A0](docs/tracks/a-llm-post-training/a0-hands-on-post-training.md)**, the hands-on post-training guide, which needs a GPU (free Colab is enough). The interactive web app in `PLAN.md` is a proposal, not built.
 >
 > 🗓 **Last updated:** 2026-09-17
 
@@ -177,9 +177,7 @@ Product with personalization?          Go to Track B  (and come back only for th
 | **B3** | [Q-Learning (Tabular)](docs/tracks/b-decision-optimization/b3-q-learning-tabular.md) | **Sequence** of decisions, small state space | ⭐ | ✅ |
 | **B4** | [Feature-Based Q-Learning](docs/tracks/b-decision-optimization/b4-feature-based-q-learning.md) | Sequence, large/continuous state space | ⭐⭐⭐ | ✅ |
 | **B5** | [DQN](docs/tracks/b-decision-optimization/b5-dqn.md) | Sequence, raw high-dimensional state (text/images) | ⭐⭐⭐⭐ | ⚠ |
-| **B6** | *Production Online Systems* | Shipping any of the above to real users | ⭐⭐⭐ | ✅ |
-
-*B6 is planned — not yet written.*
+| **B6** | [Production Online Systems](docs/tracks/b-decision-optimization/b6-production-online-systems.md) | Shipping any of the above to real users | ⭐⭐⭐ | ✅ |
 
 ### Track B: The Two Paradigms
 
@@ -301,14 +299,15 @@ rl-two-tracks/
             ├── b2-contextual-bandit-linucb.md
             ├── b3-q-learning-tabular.md
             ├── b4-feature-based-q-learning.md
-            └── b5-dqn.md
+            ├── b5-dqn.md
+            └── b6-production-online-systems.md
 ```
 
 ---
 
 ## Contributing
 
-Contributions are welcome — new guides, fixes, and clearer examples. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. Good first contributions: the planned guides (**A6**, **B6**).
+Contributions are welcome — new guides, fixes, and clearer examples. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. Good first contributions: the planned guide (**A6**).
 
 ---
 

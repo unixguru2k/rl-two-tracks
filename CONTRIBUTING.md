@@ -4,12 +4,11 @@ Thanks for helping improve RL Two Tracks. This repo is **documentation-first**: 
 
 ## Good First Contributions
 
-The two planned guides are the highest-value additions:
+The one planned guide is the highest-value addition:
 
 - **A6 — Rewards & Test-Time Compute** → `docs/tracks/a-llm-post-training/a6-rewards-and-test-time-compute.md`
-- **B6 — Production Online Systems** → `docs/tracks/b-decision-optimization/b6-production-online-systems.md`
 
-Until they are written they are referenced as plain italic text with a `(planned)` marker — never as links — so no page dead-ends.
+Until it is written it is referenced as plain italic text with a `(planned)` marker — never as a link — so no page dead-ends.
 
 ## Guide Conventions
 
@@ -33,7 +32,7 @@ What You'll Learn → The Concept → Python Example → When to Use → Key Con
 **Up:** [Track X Index](index.md) · **Reference:** [RL Methods Guide — Level N](../../RL_METHODS_GUIDE.md#<anchor>)
 ```
 
-- The first guide in a track omits **Previous**; the last guide points **Next** at the planned guide as italic text with a `(planned)` marker.
+- The first guide in a track omits **Previous**. The last guide omits **Next** — unless a further guide is planned, in which case point **Next** at it as italic text with a `(planned)` marker (as A5 does for A6).
 - Always keep `Guide X of 7` in sync across both tracks (14 guides total: 7 per track).
 
 ## Pull Requests

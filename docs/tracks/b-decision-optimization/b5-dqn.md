@@ -563,6 +563,6 @@ When you need continuous actions (not just discrete choices) or want to train LL
 
 ---
 
-**Previous:** [B4 — Feature-Based Q-Learning](b4-feature-based-q-learning.md) · **Next:** *B6 — Production Online Systems* (planned)
+**Previous:** [B4 — Feature-Based Q-Learning](b4-feature-based-q-learning.md) · **Next:** [B6 — Production Online Systems](b6-production-online-systems.md)
 
 **Up:** [Track B Index](index.md) · **Reference:** [RL Methods Guide — Level 4](../../RL_METHODS_GUIDE.md#level-4-deep-q-network-dqn)
