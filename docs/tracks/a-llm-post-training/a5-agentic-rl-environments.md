@@ -1,5 +1,7 @@
 # A5 — Agentic RL & Environments
 
+> **Track A · Guide 6 of 6** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+
 ## What You'll Learn
 
 A4 taught a model to get a single answer right. A5 teaches a model to **act** — to take a sequence of steps, call tools, observe results, and recover from its own mistakes until a task is done. This is **agentic RL**, and its key artifact is not the model or the algorithm — it is the **environment**: a packaged, resettable, stateful world with tools and a verifier.

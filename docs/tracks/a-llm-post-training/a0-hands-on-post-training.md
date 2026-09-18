@@ -1,12 +1,14 @@
 # A0 — Hands-On Post-Training (SFT → DPO → GRPO)
 
+> **Track A · Guide 1 of 6** — [Track A Index](index.md) · [RL Methods Guide](../../RL_METHODS_GUIDE.md)
+
 ## What You'll Learn
 
 The other Track A guides explain *why* post-training works. This one makes you *do* it — end to end, on hardware you already own. You will run the full pipeline: **SFT → DPO → GRPO**, starting with a small model on your laptop and finishing on a free Colab GPU.
 
 > **TL;DR:** Climb the pipeline in order. SFT teaches *format*, DPO teaches *preference*, GRPO teaches *reasoning*. Most people stop at DPO — that is the intended design.
 >
-> ⚠️ **This is the only guide in the repo that needs more than NumPy.** Every other guide runs on CPU with a single dependency. This one needs a GPU (the free Colab tier is enough) and a real library (TRL).
+> ⚠ **This is the only guide in the repo that needs more than NumPy.** Every other guide runs on CPU with a single dependency. This one needs a GPU (the free Colab tier is enough) and a real library (TRL).
 
 ---
 

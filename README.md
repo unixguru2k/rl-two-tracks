@@ -6,7 +6,7 @@
 
 > **Learn Reinforcement Learning from a random baseline to agentic RL** — hands-on, runnable Python examples, organized as **two independent tracks**. They share vocabulary and almost nothing else: different reward sources, runtimes, costs, and audiences.
 >
-> 🚧 **Status:** 12 of 13 guides are live. Pending: **A6, B6**. All guides are self-contained and NumPy-only **except [A0](docs/tracks/a-llm-post-training/a0-hands-on-post-training.md)**, the hands-on post-training guide, which needs a GPU (free Colab is enough). The interactive web app in `PLAN.md` is a proposal, not built.
+> 🚧 **Status:** 12 of 14 guides are live. Pending: **A6, B6**. All guides are self-contained and NumPy-only **except [A0](docs/tracks/a-llm-post-training/a0-hands-on-post-training.md)**, the hands-on post-training guide, which needs a GPU (free Colab is enough). The interactive web app in `PLAN.md` is a proposal, not built.
 >
 > 🗓 **Last updated:** 2026-09-17
 
