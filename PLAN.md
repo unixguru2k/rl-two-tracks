@@ -13,7 +13,7 @@ An interactive web application for learning and experimenting with Reinforcement
 | Backend | Python (Flask) | Best for numerical computation, clean API design |
 | Frontend | HTML + Tailwind/DaisyUI | Beautiful, responsive UI |
 | Visualizations | Chart.js + Custom Canvas | Real-time RL visualizations |
-| Data Storage | MACHAAO API | Save experiments, track progress |
+| Data Storage | Key-value store + append-only log | Save experiments, track progress |
 | Real-time Updates | SSE | Live training progress |
 
 ---
@@ -166,7 +166,7 @@ rl-testing/
 │   ├── store/
 │   │   ├── __init__.py          # Factory
 │   │   ├── base.py              # Store interface
-│   │   └── machaao_store.py     # MACHAAO implementation
+│   │   └── local_store.py       # Local store implementation
 │   ├── services/
 │   │   ├── __init__.py
 │   │   ├── experiment_service.py
@@ -207,8 +207,8 @@ rl-testing/
 
 ```
 ┌─────────────┐      REST/SSE       ┌─────────────┐      Store       ┌─────────────┐
-│   Browser   │ ◄──────────────────► │   Flask     │ ◄──────────────► │  MACHAAO    │
-│   (UI)      │                      │   Backend   │                  │  API        │
+│   Browser   │ ◄──────────────────► │   Flask     │ ◄──────────────► │  Data       │
+│   (UI)      │                      │   Backend   │                  │  Store      │
 └─────────────┘                      └─────────────┘                  └─────────────┘
       │                                    │
       │ Canvas Rendering                   │ RL Training Loop
@@ -219,15 +219,15 @@ rl-testing/
 └─────────────┘                      └─────────────┘
 ```
 
-### MACHAAO API Usage
+### Data Storage
 
-| Data | MACHAAO Endpoint | Why |
-|------|-----------------|-----|
-| Conversation history | `/ai/conversations` | Store full chat context |
-| Q-table / Policy weights | `/app-data/{key}` | O(1) lookup for agent decisions |
-| User feedback events | `/content` (type: feedback) | Searchable for training |
-| Experiment results | `/content` (type: experiment) | Compare strategies over time |
-| RL model config | `/app-data/{key}` | Hyperparameters per user segment |
+| Data | Store | Why |
+|------|-------|-----|
+| Conversation history | append-only log | Store full chat context |
+| Q-table / Policy weights | key-value store | O(1) lookup for agent decisions |
+| User feedback events | append-only log | Searchable for training |
+| Experiment results | append-only log | Compare strategies over time |
+| RL model config | key-value store | Hyperparameters per user segment |
 
 ---
 
@@ -282,7 +282,7 @@ Step 6: Integration
 | Adjust Hyperparameters | Tune α, γ, ε in real-time |
 | Start Training | Agent begins learning, live visualization |
 | Step Mode | Execute one step at a time for learning |
-| Save Experiment | Stores results to MACHAAO for comparison |
+| Save Experiment | Stores results for later comparison |
 | View History | See past experiments, compare learning curves |
 
 ---
@@ -290,17 +290,10 @@ Step 6: Integration
 ## Environment Variables
 
 ```bash
-# MACHAAO Platform (auto-injected by platform on deploy)
-MACHAAO_API_TOKEN=
-MACHAAO_APP_ID=
-MACHAAO_DEVELOPER_TOKEN=
-MACHAAO_API_BASE_URL=https://api.machaao.com
-MACHAAO_API_VERSION=v2
-
 # Application
 PORT=5000
 DEBUG=false
-STORE_BACKEND=machaao
+STORE_BACKEND=local
 ```
 
 ---
