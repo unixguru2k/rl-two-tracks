@@ -8,7 +8,7 @@
 >
 > 🚧 **Status:** 13 of 14 guides are live. Pending: **A6**. All guides are self-contained and NumPy-only **except [A0](docs/tracks/a-llm-post-training/a0-hands-on-post-training.md)**, the hands-on post-training guide, which needs a GPU (free Colab is enough). The interactive web app in `PLAN.md` is a proposal, not built.
 >
-> 🗓 **Last updated:** 2026-09-17
+> 🗓 **Last updated:** 2026-09-18
 
 ---
 
