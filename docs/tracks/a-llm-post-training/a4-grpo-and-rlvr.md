@@ -461,7 +461,9 @@ For reasoning tasks with verifiers: GRPO + RLVR (Level 8).
 - **DeepSeekMath** (2024) — introduced GRPO
 - **DeepSeek-R1** (2025) — GRPO + RLVR at reasoning scale
 - **DPO** — Rafailov et al., 2023 (see Level 7)
-- **GSPO** — Qwen's sequence-level variant of GRPO
+- **DAPO** (2025) — production-scale GRPO refinement: Clip-Higher, dynamic sampling, token-level loss, overlong reward shaping (fixes length bias + entropy collapse)
+- **Dr.GRPO** (2025) — drops std normalization to fix length-inflation bias
+- **GSPO** — Qwen's sequence-level variant of GRPO (stabilizes long sequences / MoE)
 - **RLVR surveys** (2025) — reinforcement learning with verifiable rewards
 
 ---

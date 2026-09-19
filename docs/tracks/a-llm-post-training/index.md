@@ -129,7 +129,7 @@ If you were building this from scratch today, the canonical order is:
 Three things worth internalizing:
 
 1. **You rarely need step 3.** Most teams stop at step 2 and get most of the benefit.
-2. **Step 4 is frequently a better buy than step 3.** Inference-time search on a decent model often beats more training on a mediocre one.
+2. **Steps 3 and 4 are complementary, not substitutes.** RL training (step 3) raises the model's reasoning *ceiling*; test-time compute (step 4) extracts that ceiling at inference. Verifier-based RL typically scales *better* with a larger test-time budget than training-free methods — so this is not an either/or choice.
 3. **Steps are not exclusive.** RLHF-era thinking assumed one pipeline; 2026 practice mixes them per capability.
 
 ---

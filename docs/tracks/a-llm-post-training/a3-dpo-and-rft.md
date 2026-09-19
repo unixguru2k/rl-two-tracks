@@ -246,7 +246,7 @@ for name, r in zip(RESPONSE_NAMES, implicit):
 | Limited compute | No reward model, no sampling, no RL loop |
 | Preference data you already have | Uses pairs directly |
 | Iterating fast | One supervised-style training run |
-| Open-source fine-tuning | The de-facto standard (Mistral, Llama, Zephyr, Tulu) |
+| Open-source fine-tuning | The common default *starting point* (Mistral, Llama, Zephyr, Tulu) — though RLHF still wins on safety-critical, long-horizon, and out-of-distribution tasks |
 
 ---
 
@@ -337,7 +337,7 @@ CHOOSING A VARIANT:
 | Stability | Fragile, tuning-heavy | Supervised-style, stable |
 | Compute | High | Much lower |
 | Online exploration | ✅ Can discover new outputs | ❌ Learns only from given pairs |
-| Reward hacking | Possible (via RM) | Reduced (no RM to hack) |
+| Reward hacking | Possible (via RM) | Reduced (no RM to hack) — but the implicit reward can overfit preferences |
 | Best for | Large labs, online data | Most teams, offline preferences |
 
 ---

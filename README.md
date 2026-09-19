@@ -140,7 +140,7 @@ TRUSTWORTHY / EXPENSIVE  ──────────────────�
 4. TEST-TIME COMPUTE      search / reranking / self-consistency (A6)
 ```
 
-> **You rarely need step 3.** Most teams stop at step 2. **Step 4 is often a better buy than step 3.**
+> **You rarely need step 3.** Most teams stop at step 2. **Steps 3 and 4 are complementary, not substitutes** — training raises the reasoning ceiling, test-time compute extracts it.
 
 ### Track A: Recommended Paths
 
