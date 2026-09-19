@@ -218,7 +218,7 @@ Text/images are the state?         B5  (only if B4 provably fails)
 About to ship to real users?       B6  (mandatory)
 ```
 
-**Track B takeaway:** no GPUs, no reward model, no preference data — just a measurable outcome, a context vector, and one key-value store. Most production RL in the world looks like this, not like RLHF.
+**Track B takeaway:** no GPUs, no reward model, no preference data — just a measurable outcome, a context vector, and one key-value store. In ads, ranking, and recommendation, the online-learning default has been a contextual bandit for a decade — and increasingly, a bandit wrapped around a frozen model. It almost never gets a tutorial.
 
 ---
 

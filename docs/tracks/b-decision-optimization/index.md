@@ -167,7 +167,10 @@ Track B optimizes WHICH ACTION your system takes.
 
 This track needs no GPUs, no reward model, and no preference data —
 just a measurable outcome, a context vector, and one key-value store.
-Most production RL in the world looks like this, not like RLHF.
+
+In ads, ranking, and recommendation, the online-learning default has been
+a contextual bandit for a decade. Increasingly, it's a bandit wrapped
+around a frozen model — and it almost never gets a tutorial.
 ```
 
 ---

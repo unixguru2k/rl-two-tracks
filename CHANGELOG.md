@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- add launch copy and claim receipts under `docs/launch/` — LinkedIn post, X thread, and a sourced note on the production-RL claim
 - add .gitignore to project structure tree in README (README.md) [via commit]
 - add B6 guide and complete Track B (CHANGELOG.md, CONTRIBUTING.md, README.md, +3 more) [via commit]
 - add B6 guide: Production Online Systems (docs/tracks/b-decision-optimization/b6-production-online-systems.md) — cold start, non-stationarity, latency budget, safety rails, and off-policy evaluation; completes Track B (7 of 7)
@@ -25,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - standardize navigation footers and fix guide numbering (docs/tracks/a-llm-post-training/a0-hands-on-post-training.md, docs/tracks/a-llm-post-training/a2-rlhf.md, docs/tracks/a-llm-post-training/a5-agentic-rl-environments.md, +1 more) [via commit]
 ### Changed
 
+- narrow the unsupported "most production RL" claim in README.md and docs/tracks/b-decision-optimization/index.md to a scoped, checkable population (ads, ranking, recommendation); receipts recorded in docs/launch/claims.md
 - update project structure tree in README (README.md) [via commit]
 - clarify A0 GPU requirement in README tech stack (README.md) [via commit]
 - update last updated date in README (README.md) [via commit]
