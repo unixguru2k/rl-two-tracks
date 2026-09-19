@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- add launch materials and narrow production RL claim scope (CHANGELOG.md, README.md, docs/launch/claims.md, +2 more) [via commit]
 - add launch copy and claim receipts under `docs/launch/` — LinkedIn post, X thread, and a sourced note on the production-RL claim
 - add .gitignore to project structure tree in README (README.md) [via commit]
 - add B6 guide and complete Track B (CHANGELOG.md, CONTRIBUTING.md, README.md, +3 more) [via commit]
@@ -26,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - standardize navigation footers and fix guide numbering (docs/tracks/a-llm-post-training/a0-hands-on-post-training.md, docs/tracks/a-llm-post-training/a2-rlhf.md, docs/tracks/a-llm-post-training/a5-agentic-rl-environments.md, +1 more) [via commit]
 ### Changed
 
+- update RL guides with 2025-2026 findings on scaling and alignment (README.md, docs/tracks/a-llm-post-training/a3-dpo-and-rft.md, docs/tracks/a-llm-post-training/a4-grpo-and-rlvr.md, +1 more) [via commit]
 - narrow the unsupported "most production RL" claim in README.md and docs/tracks/b-decision-optimization/index.md to a scoped, checkable population (ads, ranking, recommendation); receipts recorded in docs/launch/claims.md
 - update project structure tree in README (README.md) [via commit]
 - clarify A0 GPU requirement in README tech stack (README.md) [via commit]
