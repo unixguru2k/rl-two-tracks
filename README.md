@@ -8,7 +8,7 @@
 >
 > 🚧 **Status:** 13 of 14 guides are live. Pending: **A6**. All guides are self-contained and NumPy-only **except [A0](docs/tracks/a-llm-post-training/a0-hands-on-post-training.md)**, the hands-on post-training guide, which needs a GPU (free Colab is enough). The interactive web app in `PLAN.md` is a proposal, not built.
 >
-> 🗓 **Last updated:** 2026-09-18
+> 🗓 **Last updated:** 2026-09-20
 
 ---
 
@@ -248,7 +248,7 @@ There is nothing to install. Every guide is copy-paste runnable.
 
 ```bash
 # 1. Clone
-git clone https://github.com/your-org/rl-two-tracks.git
+git clone https://github.com/unixguru2k/rl-two-tracks.git
 cd rl-two-tracks
 
 # 2. Install the single dependency used by all examples
@@ -286,6 +286,9 @@ rl-two-tracks/
 ├── .gitignore
 └── docs/
     ├── RL_METHODS_GUIDE.md            ← master reference: all 9 levels
+    ├── launch/                        ← launch copy + claim receipts (internal)
+    │   ├── launch-copy.md
+    │   └── claims.md
     └── tracks/
         ├── a-llm-post-training/       ← Track A (model training)
         │   ├── index.md

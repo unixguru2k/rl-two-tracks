@@ -55,7 +55,7 @@ Two tracks. NumPy only. Link in the comments.
 
 ## LinkedIn — First Comment (holds the link)
 
-Repo here: `<repo-url>`
+Repo here: https://github.com/unixguru2k/rl-two-tracks
 
 Start at the track overview, not the master guide — it tells you which half you actually need in about 90 seconds.
 
@@ -164,7 +164,7 @@ Link below 🧵
 
 ## X — Reply to Tweet 10 (holds the link)
 
-`<repo-url>`
+https://github.com/unixguru2k/rl-two-tracks
 
 Start at the track overview, not the master guide. 90 seconds to find out which half is yours.
 
@@ -203,5 +203,5 @@ Start at the track overview, not the master guide. 90 seconds to find out which 
 - **Stagger them.** Don't cross-post on the same day — it splits your own audience.
 - **Visual that works:** a two-column contrast — left "Track A — model / weights / GPU-hours / offline," right "Track B — action / your code / CPU / per-request." Attach it to X tweet 5 and to the LinkedIn main post. The bandit-vs-MDP fork diagram also works well on X tweet 6.
 - **Hashtags:** LinkedIn 3–5 (#ReinforcementLearning #MachineLearning #LLM #SoftwareEngineering #MLOps). X 0–2, on the final tweet only.
-- **Replace `<repo-url>`** — the README still carries a `your-org` placeholder.
+- **Repo URL is filled in** (`unixguru2k/rl-two-tracks`) — both in the README Quick Start and in the two link-holding spots above. Re-check if the repo is ever renamed.
 - **Strongest standalone line, if you need one:** *"Production RL isn't RLHF. It's a contextual bandit in front of a frozen model."*

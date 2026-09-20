@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - standardize navigation footers and fix guide numbering (docs/tracks/a-llm-post-training/a0-hands-on-post-training.md, docs/tracks/a-llm-post-training/a2-rlhf.md, docs/tracks/a-llm-post-training/a5-agentic-rl-environments.md, +1 more) [via commit]
+
 ### Changed
 
 - update RL guides with 2025-2026 findings on scaling and alignment (README.md, docs/tracks/a-llm-post-training/a3-dpo-and-rft.md, docs/tracks/a-llm-post-training/a4-grpo-and-rlvr.md, +1 more) [via commit]

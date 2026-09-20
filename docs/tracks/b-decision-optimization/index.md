@@ -179,4 +179,4 @@ around a frozen model — and it almost never gets a tutorial.
 
 ---
 
-**Last updated:** 2026-09-17
+**Last updated:** 2026-09-20
