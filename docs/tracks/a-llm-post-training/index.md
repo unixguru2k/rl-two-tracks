@@ -39,9 +39,7 @@ This is the track that dominates research, headlines, and job postings. It is al
 | **A3** | [DPO & RFT](a3-dpo-and-rft.md) | Alignment without a reward model or RL loop; generate-filter-finetune | Preference pairs / filtered samples | Medium |
 | **A4** | [GRPO & RLVR](a4-grpo-and-rlvr.md) | Critic-free group-relative optimization; verifiable rewards | **Programmatic verifier** | High |
 | **A5** | [Agentic RL & Environments](a5-agentic-rl-environments.md) | Multi-turn rollouts, tool use, sandboxes, the environment as a packaged unit | Verifier + environment state | High |
-| **A6** | *Rewards & Test-Time Compute* | Outcome vs process rewards, generative verifiers, search and reranking at inference | Verifier / reward model / judge | Medium–High |
-
-*A6 is planned — not yet written.*
+| **A6** | [Rewards & Test-Time Compute](a6-rewards-and-test-time-compute.md) | Outcome vs process rewards, generative verifiers, search and reranking at inference | Verifier / reward model / judge | Medium–High |
 
 ---
 

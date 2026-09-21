@@ -147,7 +147,7 @@ Most teams need the second one and are busy reading about the first.
 **9/**
 What's in it:
 
-13 of 14 guides live. Every one self-contained and NumPy-only — except the hands-on post-training guide, which needs a GPU (free Colab is enough).
+All 14 guides live. Every one self-contained and NumPy-only — except the hands-on post-training guide, which needs a GPU (free Colab is enough).
 
 No framework. No API key. Copy-paste and run.
 

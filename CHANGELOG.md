@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- add A6 guide: Rewards & Test-Time Compute (docs/tracks/a-llm-post-training/a6-rewards-and-test-time-compute.md) — outcome vs process rewards, test-time compute (best-of-N, self-consistency, search), and a NumPy comparison of four inference strategies; completes Track A (7 of 7) and the full 14-guide curriculum
 - add launch materials and narrow production RL claim scope (CHANGELOG.md, README.md, docs/launch/claims.md, +2 more) [via commit]
 - add launch copy and claim receipts under `docs/launch/` — LinkedIn post, X thread, and a sourced note on the production-RL claim
 - add .gitignore to project structure tree in README (README.md) [via commit]
@@ -28,6 +29,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- mark all 14 guides live: update status lines in README.md, CONTRIBUTING.md, and docs/launch/launch-copy.md; link A6 from the Track A index, README guide table, and A5 footer (removes the last `(planned)` marker)
+- finalize launch readiness by replacing placeholders and updating metadata (CHANGELOG.md, README.md, docs/launch/launch-copy.md, +2 more) [via commit]
 - update RL guides with 2025-2026 findings on scaling and alignment (README.md, docs/tracks/a-llm-post-training/a3-dpo-and-rft.md, docs/tracks/a-llm-post-training/a4-grpo-and-rlvr.md, +1 more) [via commit]
 - narrow the unsupported "most production RL" claim in README.md and docs/tracks/b-decision-optimization/index.md to a scoped, checkable population (ads, ranking, recommendation); receipts recorded in docs/launch/claims.md
 - update project structure tree in README (README.md) [via commit]

@@ -147,7 +147,7 @@ Options:
   Turn-level shaping     → per-step rewards (risk: opens the door to hacking)
 ```
 
-This is exactly where A5 hands off to *A6 — Rewards & Test-Time Compute* (planned): process reward models, validators, and search are the tools that make credit assignment tractable. Note that the GRPO trick from A4 — normalize against the group — carries straight into agentic RL, and is what makes the whole thing feasible without a critic.
+This is exactly where A5 hands off to [A6 — Rewards & Test-Time Compute](a6-rewards-and-test-time-compute.md): process reward models, validators, and search are the tools that make credit assignment tractable. Note that the GRPO trick from A4 — normalize against the group — carries straight into agentic RL, and is what makes the whole thing feasible without a critic.
 
 ---
 
@@ -366,6 +366,6 @@ For agents that act: A5 — and the environment, not the model, is the work.
 
 ---
 
-**Previous:** [A4 — GRPO & RLVR](a4-grpo-and-rlvr.md) · **Next:** *A6 — Rewards & Test-Time Compute* (planned)
+**Previous:** [A4 — GRPO & RLVR](a4-grpo-and-rlvr.md) · **Next:** [A6 — Rewards & Test-Time Compute](a6-rewards-and-test-time-compute.md)
 
 **Up:** [Track A Index](index.md) · **Reference:** [RL Methods Guide](../../RL_METHODS_GUIDE.md)

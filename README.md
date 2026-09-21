@@ -6,7 +6,7 @@
 
 > **Learn Reinforcement Learning from a random baseline to agentic RL** — hands-on, runnable Python examples, organized as **two independent tracks**. They share vocabulary and almost nothing else: different reward sources, runtimes, costs, and audiences.
 >
-> 🚧 **Status:** 13 of 14 guides are live. Pending: **A6**. All guides are self-contained and NumPy-only **except [A0](docs/tracks/a-llm-post-training/a0-hands-on-post-training.md)**, the hands-on post-training guide, which needs a GPU (free Colab is enough). The interactive web app in `PLAN.md` is a proposal, not built.
+> ✅ **Status:** All 14 guides are live. Every guide is self-contained and NumPy-only **except [A0](docs/tracks/a-llm-post-training/a0-hands-on-post-training.md)**, the hands-on post-training guide, which needs a GPU (free Colab is enough). The interactive web app in `PLAN.md` is a proposal, not built.
 >
 > 🗓 **Last updated:** 2026-09-20
 
@@ -101,9 +101,7 @@ You don't reinvent RLHF. You **use** its output (GPT-4, Claude via API) and laye
 | **A3** | [DPO & RFT](docs/tracks/a-llm-post-training/a3-dpo-and-rft.md) | Alignment without a reward model or RL loop | Preference pairs / filtered samples | Medium |
 | **A4** | [GRPO & RLVR](docs/tracks/a-llm-post-training/a4-grpo-and-rlvr.md) | Critic-free group-relative optimization; verifiable rewards | **Programmatic verifier** | High |
 | **A5** | [Agentic RL & Environments](docs/tracks/a-llm-post-training/a5-agentic-rl-environments.md) | Multi-turn rollouts, tool use, sandboxes | Verifier + environment state | High |
-| **A6** | *Rewards & Test-Time Compute* | Outcome vs process rewards, search, reranking | Verifier / judge | Med–High |
-
-*A6 is planned — not yet written.*
+| **A6** | [Rewards & Test-Time Compute](docs/tracks/a-llm-post-training/a6-rewards-and-test-time-compute.md) | Outcome vs process rewards, search, reranking | Verifier / judge | Med–High |
 
 ### Track A: The Reward Source Progression
 
@@ -297,7 +295,8 @@ rl-two-tracks/
         │   ├── a2-rlhf.md
         │   ├── a3-dpo-and-rft.md
         │   ├── a4-grpo-and-rlvr.md
-        │   └── a5-agentic-rl-environments.md
+        │   ├── a5-agentic-rl-environments.md
+        │   └── a6-rewards-and-test-time-compute.md
         └── b-decision-optimization/   ← Track B (app & product engineers)
             ├── index.md
             ├── b0-random-baseline.md
@@ -313,7 +312,7 @@ rl-two-tracks/
 
 ## Contributing
 
-Contributions are welcome — new guides, fixes, and clearer examples. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. Good first contributions: the planned guide (**A6**).
+Contributions are welcome — new guides, fixes, and clearer examples. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. All 14 guides are live; good first contributions are fixes, clearer examples, and new cross-track material.
 
 ---
 
