@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RL Two Tracks — Reinforcement Learning for Agents, LLMs & Systems</title>
+    <style>
+        /* Reset and base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Slide container */
+        .slides-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 80px;
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            pointer-events: none;
+            background: #0a0a0a;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+        }
+
+        .slide.exit {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+
+        /* Slide number */
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: #f0f0f0;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #a78bfa;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: #888;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #bbb;
+            max-width: 900px;
+        }
+
+        .small {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Emphasis */
+        strong {
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .highlight {
+            color: #a78bfa;
+        }
+
+        .em-blue { color: #60a5fa; }
+        .em-purple { color: #a78bfa; }
+        .em-green { color: #34d399; }
+        .em-amber { color: #fbbf24; }
+        .em-red { color: #f87171; }
+
+        /* Cards */
+        .card {
+            background: #151515;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 28px;
+            margin: 12px 0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 16px;
+        }
+
+        .card-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card-body {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* Code blocks */
+        pre {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 20px 24px;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 16px;
+            line-height: 1.5;
+            overflow-x: auto;
+            margin-top: 16px;
+            color: #ccc;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.9em;
+        }
+
+        .inline-code {
+            background: #1a1a2e;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #60a5fa;
+        }
+
+        /* Arrow / flow */
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .flow-step {
+            background: #151515;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 14px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .flow-arrow {
+            color: #555;
+            font-size: 20px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            font-size: 16px;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            background: #111;
+            color: #888;
+            font-weight: 600;
+            border-bottom: 1px solid #2a2a2a;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #1a1a1a;
+            color: #ccc;
+        }
+
+        /* Lists */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 8px 0;
+            font-size: 18px;
+            color: #bbb;
+            line-height: 1.4;
+        }
+
+        ul li::before {
+            content: "→ ";
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        /* Divider */
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            border-radius: 2px;
+            margin: 20px 0;
+        }
+
+        /* Quote */
+        .quote {
+            border-left: 3px solid #a78bfa;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-size: 20px;
+            color: #aaa;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .badge-a { background: #1a1a3e; color: #60a5fa; border: 1px solid #2a2a5e; }
+        .badge-b { background: #1a2e1a; color: #34d399; border: 1px solid #2a4a2a; }
+        .badge-new { background: #2e1a1a; color: #f87171; border: 1px solid #4a2a2a; }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            bottom: 30px;
+            left: 40px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .nav button {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #888;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .nav button:hover {
+            background: #222;
+            color: #fff;
+            border-color: #555;
+        }
+
+        /* Progress bar */
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            transition: width 0.4s ease;
+            z-index: 200;
+        }
+
+        /* Title slide special */
+        .title-slide h1 {
+            font-size: 64px;
+            margin-bottom: 24px;
+        }
+
+        .title-slide .subtitle {
+            font-size: 24px;
+        }
+
+        /* Two column */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .col-header {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        /* Comparison */
+        .vs-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+        }
+
+        .vs-track {
+            flex: 1;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .vs-track-a {
+            background: linear-gradient(135deg, #0a0a2e, #0a0a3e);
+            border: 1px solid #2a2a5e;
+        }
+
+        .vs-track-b {
+            background: linear-gradient(135deg, #0a1a0a, #0a2a0a);
+            border: 1px solid #2a4a2a;
+        }
+
+        .vs-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .vs-text {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .vs-divider {
+            font-size: 32px;
+            font-weight: 700;
+            color: #444;
+        }
+
+        /* SVG icons */
+        .icon-48 {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 12px;
+        }
+
+        /* Slide-specific backgrounds */
+        .slide-bg-dots {
+            background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Confetti-like accents */
+        .accent-1 { position: absolute; width: 200px; height: 200px; background: radial-gradient(circle, rgba(96,165,250,0.05), transparent); top: -50px; right: -50px; border-radius: 50%; }
+        .accent-2 { position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, rgba(167,139,250,0.04), transparent); bottom: -100px; left: -100px; border-radius: 50%; }
+
+        /* Level badges */
+        .level-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .level-a { background: #1a1a3e; color: #60a5fa; }
+        .level-b { background: #1a2e1a; color: #34d399; }
+
+        /* Ladder diagram */
+        .ladder {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 16px;
+        }
+
+        .ladder-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 16px;
+            background: #111;
+            border-radius: 8px;
+            border-left: 3px solid;
+            font-size: 15px;
+        }
+
+        .ladder-item .level-num {
+            font-weight: 700;
+            font-size: 13px;
+            min-width: 28px;
+        }
+
+        .ladder-item .level-label {
+            flex: 1;
+        }
+
+        .ladder-item .level-note {
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="slides-container" id="slides-container">
+
+<!-- ============ SLIDE 1: TITLE ============ -->
+<div class="slide active title-slide" data-slide="1">
+    <div class="accent-1"></div>
+    <div class="accent-2"></div>
+    <h1>RL Two Tracks</h1>
+    <div class="subtitle">
+        Reinforcement Learning for Agents, LLMs & Systems<br>
+        <span style="color: #666; font-size: 18px;">Hands-on, runnable Python · Two independent tracks · 14 self-contained guides</span>
+    </div>
+    <div class="divider" style="margin-top: 30px;"></div>
+    <p style="margin-top: 12px; font-size: 17px; color: #555;">
+        Production RL isn't RLHF. It's a contextual bandit in front of a frozen model.<br>
+        This repo teaches both sides — and when to use which.
+    </p>
+    <div class="slide-number">1 / 14</div>
+</div>
+
+<!-- ============ SLIDE 2: THE PROBLEM ============ -->
+<div class="slide" data-slide="2">
+    <h2>The Problem</h2>
+    <div class="divider"></div>
+    <p style="font-size: 22px; margin-bottom: 24px;">
+        Most "learn RL" content sends app engineers <strong>down the wrong path</strong>.
+    </p>
+    <div class="card">
+        <div class="card-body" style="font-size: 17px; line-height: 1.8;">
+            It opens with <strong>CartPole</strong>. It ends with <strong>RLHF</strong>.<br>
+            And somewhere in the middle, a backend engineer who just wants to pick
+            the better response style for each user gives up — because none of it maps
+            to the code they actually ship.
+        </div>
+    </div>
+    <div style="margin-top: 24px;">
+        <h3>Two completely different jobs, one confused curriculum</h3>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title em-blue">What you probably need</div>
+                <div class="card-body">Personalize which action your system takes. Online. Per-request. CPU. Milliseconds.</div>
+            </div>
+            <div class="card">
+                <div class="card-title em-purple">What tutorials teach</div>
+                <div class="card-body">Train a model's weights. Offline. GPU-hours. Weeks. Millions of dollars.</div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-number">2 / 14</div>
+</div>
+
+<!-- ============ SLIDE 3: THE SOLUTION ============ -->
+<div class="slide" data-slide="3">
+    <h2>The Solution: Two Tracks</h2>
+    <div class="divider"></div>
+    <p style="font-size: 20px; margin-bottom: 20px;">
+        Same vocabulary. Almost nothing else. Different reward sources, runtimes, costs, and people.
+    </p>
+
+    <div class="vs-box">
+        <div class="vs-track vs-track-a">
+            <div class="vs-label em-blue">Track A — Post-Training & Agentic RL</div>
+            <div class="vs-text">
+                You optimize <strong>THE MODEL</strong> that generates the action.<br>
+                <span style="color: #666;">Weights · Offline · GPU-hours · Millions of $</span>
+            </div>
+        </div>
+        <div class="vs-divider">VS</div>
+        <div class="vs-track vs-track-b">
+            <div class="vs-label em-green">Track B — Decision Optimization</div>
+            <div class="vs-text">
+                You optimize <strong>WHICH ACTION</strong> your system takes.<br>
+                <span style="color: #666;">Your code · Online · Per-request · CPU · ms</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="quote" style="margin-top: 20px;">
+        "Track A optimizes the model that generates the action.<br>
+        Track B optimizes which action your system takes."
+    </div>
+    <div class="slide-number">3 / 14</div>
+</div>
+
+<!-- ============ SLIDE 4: TRACK A OVERVIEW ============ -->
+<div class="slide" data-slide="4">
+    <span class="badge badge-a">Track A</span>
+    <h2>Post-Training & Agentic RL</h2>
+    <div class="divider"></div>
+    <p style="margin-bottom: 16px;">How do I make the model itself better at reasoning and at acting in an environment?</p>
+
+    <div class="ladder">
+        <div class="ladder-item" style="border-color: #60a5fa;">
+            <span class="level-num em-blue">A0</span>
+            <span class="level-label"><strong>Hands-On Post-Training</strong> — Runnable SFT → DPO → GRPO</span>
+            <span class="level-note">GPU required</span>
+        </div>
+        <div class="ladder-item" style="border-color: #60a5fa;">
+            <span class="level-num em-blue">A1</span>
+            <span class="level-label"><strong>Policy Gradient / PPO</strong> — The clipped objective</span>
+            <span class="level-note">High compute</span>
+        </div>
+        <div class="ladder-item" style="border-color: #60a5fa;">
+            <span class="level-num em-blue">A2</span>
+            <span class="level-label"><strong>RLHF</strong> — Preference data → reward model → PPO</span>
+            <span class="level-note">Extreme compute</span>
+        </div>
+        <div class="ladder-item" style="border-color: #60a5fa;">
+            <span class="level-num em-blue">A3</span>
+            <span class="level-label"><strong>DPO & RFT</strong> — Alignment without reward model</span>
+            <span class="level-note">Medium compute</span>
+        </div>
+        <div class="ladder-item" style="border-color: #60a5fa;">
+            <span class="level-num em-blue">A4</span>
+            <span class="level-label"><strong>GRPO & RLVR</strong> — Critic-free, verifiable rewards</span>
+            <span class="level-note">High compute</span>
+        </div>
+        <div class="ladder-item" style="border-color: #60a5fa;">
+            <span class="level-num em-blue">A5</span>
+            <span class="level-label"><strong>Agentic RL & Environments</strong> — Multi-turn, tool use, sandboxes</span>
+            <span class="level-note">High compute</span>
+        </div>
+        <div class="ladder-item" style="border-color: #60a5fa;">
+            <span class="level-num em-blue">A6</span>
+            <span class="level-label"><strong>Rewards & Test-Time Compute</strong> — Process rewards, search, reranking</span>
+            <span class="level-note">Med–High</span>
+        </div>
+    </div>
+
+    <p style="margin-top: 16px; font-size: 16px; color: #666;">
+        Unless you have GPUs, a verifier, and a model you own — you <em>consume</em> this track.
+    </p>
+    <div class="slide-number">4 / 14</div>
+</div>
+
+<!-- ============ SLIDE 5: TRACK B OVERVIEW ============ -->
+<div class="slide" data-slide="5">
+    <span class="badge badge-b">Track B</span>
+    <h2>Decision Optimization in Systems</h2>
+    <div class="divider"></div>
+    <p style="margin-bottom: 16px;">Which action should my system take, given the current context, right now?</p>
+
+    <div class="ladder">
+        <div class="ladder-item" style="border-color: #34d399;">
+            <span class="level-num em-green">B0</span>
+            <span class="level-label"><strong>Random Baseline</strong> — Establish the floor (control, not warm-up)</span>
+            <span class="level-note">⭐</span>
+        </div>
+        <div class="ladder-item" style="border-color: #34d399;">
+            <span class="level-num em-green">B1</span>
+            <span class="level-label"><strong>Epsilon-Greedy Bandit</strong> — Best global default, no context</span>
+            <span class="level-note">⭐</span>
+        </div>
+        <div class="ladder-item" style="border-color: #34d399;">
+            <span class="level-num em-green">B2</span>
+            <span class="level-label"><strong>Contextual Bandit (LinUCB)</strong> — Personalize with context</span>
+            <span class="level-note">⭐⭐</span>
+        </div>
+        <div class="ladder-item" style="border-color: #34d399;">
+            <span class="level-num em-green">B3</span>
+            <span class="level-label"><strong>Q-Learning (Tabular)</strong> — Sequential decisions, small state space</span>
+            <span class="level-note">⭐⭐</span>
+        </div>
+        <div class="ladder-item" style="border-color: #34d399;">
+            <span class="level-num em-green">B4</span>
+            <span class="level-label"><strong>Feature-Based Q-Learning</strong> — Large/continuous state space</span>
+            <span class="level-note">⭐⭐⭐</span>
+        </div>
+        <div class="ladder-item" style="border-color: #34d399;">
+            <span class="level-num em-green">B5</span>
+            <span class="level-label"><strong>DQN</strong> — Raw high-dimensional state, neural network</span>
+            <span class="level-note">⭐⭐⭐⭐</span>
+        </div>
+        <div class="ladder-item" style="border-color: #34d399;">
+            <span class="level-num em-green">B6</span>
+            <span class="level-label"><strong>Production Online Systems</strong> — Shipping to real users</span>
+            <span class="level-note">⭐⭐⭐</span>
+        </div>
+    </div>
+
+    <p style="margin-top: 16px; font-size: 16px; color: #666;">
+        No GPU, no reward model, no preference data. Just a measurable outcome and a key-value store.
+    </p>
+    <div class="slide-number">5 / 14</div>
+</div>
+
+<!-- ============ SLIDE 6: THE CRITICAL QUESTION ============ -->
+<div class="slide" data-slide="6">
+    <h2>The Most Common Mistake</h2>
+    <div class="divider"></div>
+    <p style="font-size: 22px; margin-bottom: 24px;">
+        This single question routes you to <strong>half the curriculum</strong>:
+    </p>
+
+    <div class="card" style="border-color: #a78bfa; border-width: 2px; text-align: center; padding: 40px;">
+        <h3 style="font-size: 28px; color: #f0f0f0; margin-bottom: 8px;">Do the ORDER of your decisions matter?</h3>
+        <div style="font-size: 17px; color: #888;">
+            Does yesterday's decision change today's options?
+        </div>
+    </div>
+
+    <div class="card-grid" style="margin-top: 20px;">
+        <div class="card" style="text-align: center; border-color: #2a4a2a;">
+            <div class="card-title em-green">NO → Bandits</div>
+            <div class="card-body">
+                Each decision is independent.<br>
+                "Pick the best option RIGHT NOW."<br>
+                <strong>B0, B1, B2</strong>
+            </div>
+        </div>
+        <div class="card" style="text-align: center; border-color: #2a2a5e;">
+            <div class="card-title em-blue">YES → MDP</div>
+            <div class="card-body">
+                Decisions are sequential.<br>
+                "What leads to the BEST FUTURE?"<br>
+                <strong>B3, B4, B5</strong>
+            </div>
+        </div>
+    </div>
+
+    <p style="margin-top: 20px; font-size: 16px; color: #666; text-align: center;">
+        Using a bandit for a sequential problem, or an MDP for an independent one, is the mistake this repo exists to prevent.
+    </p>
+    <div class="slide-number">6 / 14</div>
+</div>
+
+<!-- ============ SLIDE 7: REWARD SOURCE PROGRESSION ============ -->
+<div class="slide" data-slide="7">
+    <h2>The Reward Source Progression</h2>
+    <div class="divider"></div>
+    <p style="margin-bottom: 20px;">The single most useful axis for orienting yourself — and the axis along which the field moved.</p>
+
+    <div class="flow" style="justify-content: space-between; margin: 30px 0;">
+        <div style="text-align: center; flex: 1;">
+            <div style="font-size: 13px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Trustworthy / Expensive</div>
+            <div class="card" style="border-color: #2a2a5e;">
+                <div class="card-title em-blue">Human Preferences</div>
+                <div class="card-body" style="font-size: 14px;">
+                    "Which answer would a human prefer?"<br>
+                    <strong>A2 (RLHF)</strong>
+                </div>
+            </div>
+        </div>
+        <div class="flow-arrow" style="font-size: 28px; align-self: center;">→</div>
+        <div style="text-align: center; flex: 1;">
+            <div style="font-size: 13px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Middle Ground</div>
+            <div class="card" style="border-color: #4a3a2a;">
+                <div class="card-title em-amber">AI Judge / RLAIF</div>
+                <div class="card-body" style="font-size: 14px;">
+                    "Which answer does GPT-4 prefer?"<br>
+                    <strong>A3 (pairs), RLAIF</strong>
+                </div>
+            </div>
+        </div>
+        <div class="flow-arrow" style="font-size: 28px; align-self: center;">→</div>
+        <div style="text-align: center; flex: 1;">
+            <div style="font-size: 13px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Cheap / Scalable</div>
+            <div class="card" style="border-color: #2a4a2a;">
+                <div class="card-title em-green">Programmatic Verifier</div>
+                <div class="card-body" style="font-size: 14px;">
+                    "Is the answer 42? Do the tests pass?"<br>
+                    <strong>A4 (RLVR), A5</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quote" style="margin-top: 16px;">
+        The 2026 shift: the interesting work moved from left to right.<br>
+        Verifiers replaced annotators wherever correctness could be checked by machine.
+    </div>
+    <div class="slide-number">7 / 14</div>
+</div>
+
+<!-- ============ SLIDE 8: THE BRIDGE ============ -->
+<div class="slide" data-slide="8">
+    <h2>The Cross-Track Bridge</h2>
+    <div class="divider"></div>
+    <p style="margin-bottom: 20px;">The most useful idea in this repo — the one point where the two tracks couple.</p>
+
+    <div style="display: flex; align-items: center; justify-content: center; gap: 24px; margin: 40px 0;">
+        <div class="card" style="width: 340px; text-align: center; border-color: #2a2a5e;">
+            <div class="card-title em-blue">Track A — Produces JUDGES</div>
+            <div class="card-body" style="font-size: 15px;">
+                Reward models · Preference models · Verifiers<br>
+                <em style="color: #666;">RLHF'd models that can score outputs</em>
+            </div>
+        </div>
+        <div style="font-size: 40px; color: #a78bfa;">→</div>
+        <div class="card" style="width: 340px; text-align: center; border-color: #2a4a2a;">
+            <div class="card-title em-green">Track B — Consumes JUDGES</div>
+            <div class="card-body" style="font-size: 15;">
+                Scores each served action<br>
+                <em style="color: #666;">"Was this empathetic?" becomes a reward signal</em>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="border-color: #333;">
+        <pre style="background: transparent; border: none; padding: 0; font-size: 15px; margin: 0;">
+<span style="color: #666;">Without the bridge:</span>
+  serve response → ??? no measurable outcome → can't learn
+
+<span style="color: #34d399;">With the bridge:</span>
+  serve response → Track A judge scores it 0..1 → Track B bandit updates</pre>
+    </div>
+
+    <p style="margin-top: 16px; font-size: 17px;">
+        This is the answer to <em>"how do I do RL on things I can't measure with a click."</em><br>
+        It is not RLHF on your own model — it is using someone else's RLHF'd model as a measuring instrument.
+    </p>
+    <div class="slide-number">8 / 14</div>
+</div>
+
+<!-- ============ SLIDE 9: WHAT'S IN THE REPO ============ -->
+<div class="slide" data-slide="9">
+    <h2>What's In the Repo</h2>
+    <div class="divider"></div>
+
+    <div class="card-grid" style="margin-top: 12px;">
+        <div class="card">
+            <div class="card-title em-blue">14 Self-Contained Guides</div>
+            <div class="card-body">
+                Every guide is copy-paste runnable. One exception: <strong>A0</strong> needs a GPU (free Colab is enough).
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title em-green">NumPy Only</div>
+            <div class="card-body">
+                No framework, no API key. Every B-guide runs on CPU with a single dependency.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title em-purple">Real Systems</div>
+            <div class="card-body">
+                Not CartPole. Tool-using agents, verifier-graded reasoning, response strategy selection, conversation flow optimization.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title em-amber">Production Focus</div>
+            <div class="card-body">
+                Cold start, non-stationarity, safety rails, off-policy evaluation. The gap between notebook and production.
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 24px;">
+        <h3>Recommended Order</h3>
+        <div class="flow" style="margin-top: 12px;">
+            <div class="flow-step" style="border-color: #2a4a2a;">
+                <div class="small em-green">Track B</div>
+                <div>B0 → B1 → B2</div>
+                <div class="small" style="color: #666;">80/20 personalization</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step" style="border-color: #2a2a5e;">
+                <div class="small em-blue">Track A</div>
+                <div>A2 → A4 → A5</div>
+                <div class="small" style="color: #666;">Understanding the stack</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step" style="border-color: #4a3a2a;">
+                <div class="small em-amber">Bridge</div>
+                <div>A outputs → B inputs</div>
+                <div class="small" style="color: #666;">Use judges as rewards</div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-number">9 / 14</div>
+</div>
+
+<!-- ============ SLIDE 10: THE 2026 STACK ============ -->
+<div class="slide" data-slide="10">
+    <h2>The 2026 Post-Training Stack</h2>
+    <div class="divider"></div>
+    <p style="margin-bottom: 20px;">If you were building from scratch today, the canonical order:</p>
+
+    <div class="flow" style="justify-content: flex-start; gap: 12px; flex-wrap: nowrap;">
+        <div class="flow-step" style="border-color: #333; min-width: 140px;">
+            <div style="font-size: 13px; color: #666;">STEP 1</div>
+            <div style="font-weight: 600;">SFT</div>
+            <div class="small" style="color: #666;">Supervised fine-tune on demonstrations</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="border-color: #2a4a2a; min-width: 160px;">
+            <div style="font-size: 13px; color: #666;">STEP 2</div>
+            <div style="font-weight: 600;" class="em-green">Light Preference</div>
+            <div class="small" style="color: #666;">DPO / SimPO / ORPO / KTO</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="border-color: #4a3a2a; min-width: 140px;">
+            <div style="font-size: 13px; color: #666;">STEP 3</div>
+            <div style="font-weight: 600;" class="em-amber">RLVR — if needed</div>
+            <div class="small" style="color: #666;">GRPO / DAPO / GSPO</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="border-color: #2a2a5e; min-width: 140px;">
+            <div style="font-size: 13px; color: #666;">STEP 4</div>
+            <div style="font-weight: 600;" class="em-blue">Test-Time Compute</div>
+            <div class="small" style="color: #666;">Search / reranking / self-consistency</div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <div class="card" style="border-color: #333;">
+            <div style="display: flex; gap: 30px;">
+                <div style="flex: 1;">
+                    <h3 style="font-size: 16px;">1. You rarely need Step 3</h3>
+                    <div class="card-body" style="font-size: 15px;">Most teams stop at Step 2 and get most of the benefit.</div>
+                </div>
+                <div style="flex: 1;">
+                    <h3 style="font-size: 16px;">2. Steps 3 & 4 are complementary</h3>
+                    <div class="card-body" style="font-size: 15px;">Training raises the ceiling. Test-time compute extracts it.</div>
+                </div>
+                <div style="flex: 1;">
+                    <h3 style="font-size: 16px;">3. Steps aren't exclusive</h3>
+                    <div class="card-body" style="font-size: 15px;">2026 practice mixes them per capability.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-number">10 / 14</div>
+</div>
+
+<!-- ============ SLIDE 11: PRODUCTION BANDIT ============ -->
+<div class="slide" data-slide="11">
+    <h2>What Production RL Actually Looks Like</h2>
+    <div class="divider"></div>
+
+    <div class="card" style="border-color: #2a4a2a; margin-bottom: 20px;">
+        <div class="card-body" style="font-size: 18px; text-align: center; padding: 12px;">
+            In ads, ranking, and recommendation, the online-learning default has been
+            a <strong class="em-green">contextual bandit</strong> for a decade.
+        </div>
+    </div>
+
+    <div class="two-col">
+        <div>
+            <h3 style="font-size: 18px;">The Pattern</h3>
+            <div class="card" style="background: #111;">
+                <pre style="background: transparent; border: none; padding: 0; font-size: 14px; margin: 0; line-height: 1.7;">
+<span style="color: #34d399;">request</span> ─► <span style="color: #60a5fa;">context</span> ─► <span style="color: #a78bfa;">POLICY</span> ─► guardrail ─► <span style="color: #fbbf24;">serve</span>
+                  │           │          │
+                  │           │          ▼
+                  ▼           ▼      user acts
+             log decision  exposure
+             + propensity    caps    <span style="color: #34d399;">OBSERVE OUTCOME</span>
+                                            │
+                                            ▼
+                                  <span style="color: #f87171;">UPDATE STATE (O(1))</span></pre>
+            </div>
+        </div>
+        <div>
+            <h3 style="font-size: 18px;">The Economics</h3>
+            <div class="card">
+                <div class="card-body">
+                    <div style="margin-bottom: 10px;"><strong class="em-green">Policy state</strong> — ONE key-value read</div>
+                    <div style="margin-bottom: 10px;"><strong class="em-green">Latency budget</strong> — fits inside one request</div>
+                    <div style="margin-bottom: 10px;"><strong class="em-green">Update cost</strong> — O(1), milliseconds</div>
+                    <div style="margin-bottom: 10px;"><strong class="em-green">Storage</strong> — ~500 numbers per user</div>
+                    <div style="margin-bottom: 10px;"><strong class="em-green">Infrastructure</strong> — CPU, no GPU</div>
+                    <div><strong class="em-green">Safety</strong> — reward floor, kill switch, canary</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p style="margin-top: 16px; font-size: 16px; color: #666;">
+        Track A updates weights in GPU-hours. Track B updates a few numbers in microseconds.
+    </p>
+    <div class="slide-number">11 / 14</div>
+</div>
+
+<!-- ============ SLIDE 12: WHEN TO USE WHAT ============ -->
+<div class="slide" data-slide="12">
+    <h2>Quick Decision Guide</h2>
+    <div class="divider"></div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>You want to…</th>
+                <th>Use this</th>
+                <th>Track</th>
+                <th>Complexity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Find the best global default</td>
+                <td><strong class="em-green">B1 — Epsilon-Greedy Bandit</strong></td>
+                <td><span class="badge badge-b">B</span></td>
+                <td>⭐</td>
+            </tr>
+            <tr>
+                <td>Personalize per user context</td>
+                <td><strong class="em-green">B2 — LinUCB</strong></td>
+                <td><span class="badge badge-b">B</span></td>
+                <td>⭐⭐</td>
+            </tr>
+            <tr>
+                <td>Optimize conversation flow</td>
+                <td><strong class="em-green">B3 — Q-Learning</strong></td>
+                <td><span class="badge badge-b">B</span></td>
+                <td>⭐⭐</td>
+            </tr>
+            <tr>
+                <td>Align a small model to preferences</td>
+                <td><strong class="em-blue">A3 — DPO</strong></td>
+                <td><span class="badge badge-a">A</span></td>
+                <td>⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td>Train a reasoning model</td>
+                <td><strong class="em-blue">A4 — GRPO + RLVR</strong></td>
+                <td><span class="badge badge-a">A</span></td>
+                <td>⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td>Build a tool-using agent</td>
+                <td><strong class="em-blue">A5 — Agentic RL</strong></td>
+                <td><span class="badge badge-a">A</span></td>
+                <td>⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+                <td>Measure something you can't click</td>
+                <td><strong class="em-amber">Cross-Track Bridge</strong></td>
+                <td><span class="badge badge-a">A</span>→<span class="badge badge-b">B</span></td>
+                <td>⭐⭐</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p style="margin-top: 20px; font-size: 17px; color: #888; text-align: center;">
+        <strong>The 80/20:</strong> B0 → B1 → B2 covers most personalization in two hours.
+    </p>
+    <div class="slide-number">12 / 14</div>
+</div>
+
+<!-- ============ SLIDE 13: QUICK START ============ -->
+<div class="slide" data-slide="13">
+    <h2>Quick Start</h2>
+    <div class="divider"></div>
+    <p style="margin-bottom: 20px;">There is nothing to install. Every guide is copy-paste runnable.</p>
+
+    <pre><code># 1. Clone
+git clone https://github.com/unixguru2k/rl-two-tracks.git
+cd rl-two-tracks
+
+# 2. Install the single dependency
+pip install numpy
+
+# 3. Read your track, run any Python block
+#    Track A → docs/tracks/a-llm-post-training/
+#    Track B → docs/tracks/b-decision-optimization/</code></pre>
+
+    <div class="card-grid" style="margin-top: 24px;">
+        <div class="card" style="text-align: center;">
+            <div class="card-title em-blue">📖 Start with the Track Overview</div>
+            <div class="card-body" style="font-size: 15px;">
+                Not the master guide. The track overview tells you which half you need in about 90 seconds.
+            </div>
+        </div>
+        <div class="card" style="text-align: center;">
+            <div class="card-title em-green">🧪 Run B0 First</div>
+            <div class="card-body" style="font-size: 15px;">
+                Establish a random baseline. Then compare against B1. That comparison is worth more than reading ten guides.
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 24px; text-align: center;">
+        <div style="font-size: 48px; margin-bottom: 12px;">🟢</div>
+        <div style="font-size: 20px; color: #aaa;">
+            No GPU · No API key · No framework · <strong>Only NumPy</strong>
+        </div>
+    </div>
+    <div class="slide-number">13 / 14</div>
+</div>
+
+<!-- ============ SLIDE 14: CLOSING ============ -->
+<div class="slide" data-slide="14">
+    <div class="accent-1"></div>
+    <div class="accent-2"></div>
+    <h1 style="font-size: 48px;">Start Reading</h1>
+    <div class="divider" style="margin-top: 20px;"></div>
+
+    <div class="two-col" style="margin-top: 30px;">
+        <div>
+            <div class="col-header em-blue">Track A — Post-Training & Agentic RL</div>
+            <div class="card" style="border-color: #2a2a5e;">
+                <div class="card-body">
+                    Read A1–A4 for the vocabulary.<br>
+                    Then stop — you consume these models via API.
+                    <div style="margin-top: 12px;">
+                        <a href="https://github.com/unixguru2k/rl-two-tracks/tree/main/docs/tracks/a-llm-post-training" style="color: #60a5fa; text-decoration: none; font-weight: 600;">
+                            github.com/unixguru2k/rl-two-tracks → Track A
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="col-header em-green">Track B — Decision Optimization</div>
+            <div class="card" style="border-color: #2a4a2a;">
+                <div class="card-body">
+                    Start at B0. Go in order.<br>
+                    This is your entire curriculum.
+                    <div style="margin-top: 12px;">
+                        <a href="https://github.com/unixguru2k/rl-two-tracks/tree/main/docs/tracks/b-decision-optimization" style="color: #34d399; text-decoration: none; font-weight: 600;">
+                            github.com/unixguru2k/rl-two-tracks → Track B
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: center;">
+        <p style="font-size: 18px; color: #666; max-width: 700px; margin: 0 auto;">
+            Production RL isn't RLHF.<br>
+            It's a contextual bandit in front of a frozen model —<br>
+            a pattern with real deployments and almost no tutorials.<br><br>
+            <strong style="color: #a78bfa;">Two tracks. NumPy only. 14 guides. All live.</strong>
+        </p>
+    </div>
+    <div class="slide-number">14 / 14</div>
+</div>
+
+</div><!-- /slides-container -->
+
+<!-- Navigation -->
+<div class="nav">
+    <button id="prev-btn" onclick="prevSlide()">← Prev</button>
+    <button id="next-btn" onclick="nextSlide()">Next →</button>
+</div>
+
+<script>
+    let currentSlide = 1;
+    const totalSlides = 14;
+
+    function goToSlide(n) {
+        if (n < 1 || n > totalSlides) return;
+
+        const oldSlide = document.querySelector('.slide.active');
+        const newSlide = document.querySelector(`[data-slide="${n}"]`);
+
+        if (oldSlide) {
+            oldSlide.classList.remove('active');
+            oldSlide.classList.add('exit');
+            setTimeout(() => oldSlide.classList.remove('exit'), 500);
+        }
+
+        if (newSlide) {
+            newSlide.classList.add('active');
+        }
+
+        currentSlide = n;
+        document.getElementById('progress').style.width = ((n / totalSlides) * 100) + '%';
+    }
+
+    function nextSlide() { goToSlide(currentSlide + 1); }
+    function prevSlide() { goToSlide(currentSlide - 1); }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+            e.preventDefault();
+            nextSlide();
+        } else if (e.key === 'ArrowLeft' || e.key === 'Backspace') {
+            e.preventDefault();
+            prevSlide();
+        } else if (e.key === 'Home') {
+            goToSlide(1);
+        } else if (e.key === 'End') {
+            goToSlide(totalSlides);
+        }
+    });
+
+    // Touch support
+    let touchStartX = 0;
+    document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+    document.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+            diff > 0 ? nextSlide() : prevSlide();
+        }
+    });
+</script>
+
+</body>
+</html>

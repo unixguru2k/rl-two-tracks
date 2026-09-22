@@ -43,6 +43,7 @@ Track B optimizes WHICH ACTION your system takes.      (your code, online, per-r
 - [**Track B — Decision Optimization in Systems**](#track-b--decision-optimization-in-systems)
 - [Cross-Track Bridge](#cross-track-bridge)
 - [Quick Start](#quick-start)
+- [Presentation](#presentation)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
