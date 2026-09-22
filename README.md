@@ -262,6 +262,16 @@ pip install numpy
 
 ---
 
+## Presentation
+
+A visual overview of the two-track structure, key concepts, and the production RL pattern — designed for talks, onboarding, and quick reference.
+
+📖 **[Open the slides →](slides/index.html)**
+
+Use **→** / **←** arrow keys, spacebar, or the on-screen buttons to navigate. Works in any browser; no build step required.
+
+---
+
 ## Tech Stack
 
 | Layer | Choice | Why |

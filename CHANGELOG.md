@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- fix Presentation section missing from README body: add section with slides link after Quick Start (README.md) [via commit]
+- add project presentation slides and link in README (README.md, slides/index.html) [via commit]
 - add A6 guide: Rewards & Test-Time Compute (docs/tracks/a-llm-post-training/a6-rewards-and-test-time-compute.md) — outcome vs process rewards, test-time compute (best-of-N, self-consistency, search), and a NumPy comparison of four inference strategies; completes Track A (7 of 7) and the full 14-guide curriculum
 - add launch materials and narrow production RL claim scope (CHANGELOG.md, README.md, docs/launch/claims.md, +2 more) [via commit]
 - add launch copy and claim receipts under `docs/launch/` — LinkedIn post, X thread, and a sourced note on the production-RL claim
