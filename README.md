@@ -266,7 +266,7 @@ pip install numpy
 
 A visual overview of the two-track structure, key concepts, and the production RL pattern — designed for talks, onboarding, and quick reference.
 
-📖 **[Open the slides →](slides/index.html)**
+📖 **[Open the slides →](https://unixguru2k.github.io/rl-two-tracks/slides/index.html)**
 
 Use **→** / **←** arrow keys, spacebar, or the on-screen buttons to navigate. Works in any browser; no build step required.
 
